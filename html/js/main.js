@@ -69,7 +69,7 @@ requirejs.config ({
 		'propertyParser': '/bower_components/requirejs-plugins/src/propertyParser',
 
 		'mqtt': '/libs/mqtt.min',
-		'css3d': '/libs/CSS3dRenderer',
+		'css3d': '/libs/CSS3DRenderer',
 		'smoothie': '/libs/smoothie' // '/bower_components/smoothie/smoothie'
 	}
 
