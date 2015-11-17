@@ -1,0 +1,26 @@
+{
+	"topic": "astro",
+	"mqtt": {
+		"host": "54.215.79.197",
+		"port": 1886
+	},
+	"mapping": {
+		"amb": [ "Temperature", "Temp" ],
+		"obj": "Obj Temp",
+		"lux": "Light",
+		"prs": "Pressure",
+		"hum": "Humidity",
+		"acc": "Motion",
+		"acc.x": "Motion (X)",
+		"acc.y": "Motion (Y)",
+		"acc.z": "Motion (Z)",
+		"gyro": "Gyro",
+		"gyro.x": "Gyro (X)",
+		"gyro.y": "Gyro (Y)",
+		"gyro.z": "Gyro (Z)",
+		"mag": "Mag.",
+		"mag.x": "Mag (X)",
+		"mag.y": "Mag (Y)",
+		"mag.z": "Mag (Z)"
+	}
+}

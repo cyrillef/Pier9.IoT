@@ -1,0 +1,13 @@
+{
+  "name": "sensortagapp",
+  "version": "0.1.0",
+  "description": "SensorTag App",
+  "main": "sensortagAll.js",
+  "author": "Alex Chien",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "mqtt": "^1.5.0",
+    "noble": "^1.2.0",
+    "sensortag": "^1.2.0"
+  }
+}

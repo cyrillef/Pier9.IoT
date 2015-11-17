@@ -1,0 +1,50 @@
+{
+  "name": "Pier9IoTServer",
+  "description": "Node.js Server app for the Pier 9 IoT viewer",
+  "homepage": "http://around-the-corner.typepad.com/",
+  "version": "0.1.0dev",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyrillef/Plougonvelin-Heroku.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cyrillef/Plougonvelin-Heroku/issues"
+  },
+  "author": "Various - Autodesk",
+  "contributors": [
+    "Cyrille Fauvel <cyrillef@free.fr>",
+    "Hans Kellner <hans.kellner@autodesk.com>",
+    "Alex Chien <alex.chien@autodesk.com>"
+  ],
+  "license": "MIT",
+  "files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "express",
+    "framework",
+    "raspberry",
+    "node",
+    "iot"
+  ],
+  "moduleType": "node",
+  "dependencies": {
+    "async": "1.4.2",
+    "jquery": "2.1.4",
+    "requirejs": "2.1.17",
+    "domReady": "2.0.1",
+    "view-and-data-toolkit": "*",
+    "smoothie": "~1.27.0",
+    "requirejs-plugins": "~1.0.3"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

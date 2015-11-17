@@ -1,0 +1,383 @@
+/*///////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2015 Autodesk, Inc. All rights reserved
+//
+// Permission to use, copy, modify, and distribute this software in
+// object code form for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appears in all copies and
+// that both that copyright notice and the limited warranty and
+// restricted rights notice below appear in all supporting
+// documentation.
+//
+// AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS.
+// AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF
+// MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
+// DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
+// UNINTERRUPTED OR ERROR FREE.
+///////////////////////////////////////////////////////////////////////////////*/
+
+/* Icons */
+.icon {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cost:before {
+  content: "\e602";
+}
+.icon-chart:before {
+  content: "\e603";
+}
+.icon-report:before {
+  content: "\e604";
+}
+.icon-theme:before {
+  content: "\e605";
+}
+.icon-play:before {
+  content: "\e606";
+}
+.icon-menu:before {
+  content: "\e600";
+}
+.icon-cross:before {
+  content: "\e601";
+}
+
+.icon-large {
+  font-size: 1.4em;
+  vertical-align: -15%; }
+
+/* Global Elements */
+html {
+  height: 100%; }
+
+body {
+  font: 400 14px/1.2 'Open Sans', sans-serif;
+  color: #4b4b4b;
+  height: 100%; }
+
+a {
+  color: #4b4b4b; }
+
+img {
+  max-width: 100%; }
+
+button {
+   border: 1px solid #bbb;
+   background: #ffffff;
+   padding: 8px 12px;
+   min-width: 90px;
+   min-height: 25px;
+   margin-right: 8px;
+   color: #000000;
+   font-size: 14px;
+   vertical-align: middle;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   }
+button:hover {
+   background: #ededed;
+   }
+
+.group:before,
+.group:after {
+  content: " ";
+  display: table; }
+
+.group:after {
+  clear: both; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+/* Selects */
+.select-dark {
+  height: 35px;
+  background: #474b4c;
+  color: #fff;
+  border: solid 1px #202425; }
+
+.select-light {
+  height: 35px;
+  background: #f5f5f5; }
+
+label + .select-dark,
+label + .select-light {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Page header */
+.page-heading {
+  background-color: #313536;
+  padding: 12px 20px;
+  color: #fff; }
+  .page-heading h1 {
+    margin: 0;
+    font-weight: 600; }
+  .page-heading label {
+    color: #b9c0c2; }
+  .page-heading .page-heading-cell {
+    display: inline-block;
+    vertical-align: middle; }
+    .page-heading .page-heading-cell + .page-heading-cell {
+      padding-left: 35px; }
+
+/* Grid */
+.project-container {
+  width: 100%;
+  float: left;
+  height: 90%;
+  position: relative; }
+
+.social-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  min-height: 60px;
+  font-size: 12px;
+  color: #696969;
+  padding: 8px 20px;
+  background-color: #e9e9e9;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+.project-view-column {
+  float: left;
+  width: 100%; }
+
+.project-info-column {
+  float: right;
+  width: 40%;
+  overflow-y: scroll;
+  text-align: center;
+  height: 1000px;
+  padding: 30px 10px 10px 10px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+  /* padding-bottom: 80px; Space for social footer */
+  .project-info-column h2 {
+    margin-top: 0; }
+  .project-info-column .chart {
+    margin-top: 25px;
+    text-align: center; }
+    .project-info-column .chart h2 small {
+      color: #8b8b8b; }
+
+/* Tabs */
+.tab-buttons {
+  width: 100%;
+  list-style: none;
+  display: table;
+  padding: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px #bbb;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+  .tab-buttons li {
+    display: table-cell;
+    width: 20%;
+    font-size: 90%;
+    border-left: solid 1px #bbb; }
+    .tab-buttons li:first-child {
+      border-left: 0;
+      border-radius: 4px 0 0 4px; }
+    .tab-buttons li:last-child {
+      border-radius: 0 4px 4px 0; }
+    .tab-buttons li.active {
+      background-color: #ededed; }
+      .tab-buttons li.active a {
+        color: #303030; }
+      .tab-buttons li.active .icon {
+        color: #109fd3; }
+  .tab-buttons a {
+    display: block;
+    padding: 11px 0;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #9b9b9b; }
+  .tab-buttons .icon {
+    padding-right: 5px; }
+
+.tab-panel {
+  width:100%;
+  height: 100%;
+  margin: auto;
+  display: none;
+  position: relative; }
+  .tab-panel.active {
+    display: block; }
+
+/* Tablelist */
+.tablelist {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  margin-top: 10px;}
+  .tablelist .tablecell {
+    height: 40px;
+    width: inherit;
+    text-align: center;
+    vertical-align: center;
+    display: block;
+    background-color: white;
+    margin-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;}
+    .tablelist .tablecell:active {
+      background-color: white;
+      color: black;
+      -webkit-box-shadow: 0 8px 6px -6px gray;
+      -moz-box-shadow: 0 8px 6px -6px gray;
+      box-shadow: 0 8px 6px -6px gray;}
+    .tablelist .tablecell:hover {
+      background-color: #EFEFEF;
+      color: rgb(134,134,134);}
+    .tablelist .tablecell:after {
+      content: "";
+      height: 0.5px;
+      background: linear-gradient(to left,  rgba(233,233,233,0) 0%,rgba(227,227,227,1) 50%,rgba(233,233,233,0) 100%);
+      display: block;}
+      .tablelist .tablecell .celllabel {
+        text-align: center;
+        vertical-align: center;
+        display: inline-block;
+        width: 70%;
+        height: inherit;
+        line-height: 40px;
+        vertical-align: middle;
+        font-size: 18px;}
+       .tablelist .tablecell .cellbtn {
+          text-align: center;
+          display: none;
+          width: 10%;
+          height: inherit;
+          line-height: 40px;
+          vertical-align: middle;
+          cursor: pointer;}
+          .tablelist .tablecell .cellbtn:hover {
+            color: rgb(199, 99, 99);}
+
+/* Heads-up div */
+#headsup {
+  min-width: 20%;
+  min-height: 35%;
+  background: rgb(200, 200, 200); /* Fallback */
+  background: rgba(233, 233, 233, 0.7);
+  cursor: move;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  resize: both;
+  overflow: auto;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  -webkit-box-shadow: 0 8px 6px -6px gray;
+  -moz-box-shadow: 0 8px 6px -6px gray;
+  box-shadow: 0 8px 6px -6px gray;}
+  #headsup .navbar {
+    height: 28px;
+    width: 100%;
+    resize: horizontal;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.4);
+
+    -moz-border-top-left-radius: 2px;
+    -moz-border-top-right-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+
+    -moz-box-shadow:    0 2px 5px -3px gray;
+    -webkit-box-shadow: 0 2px 5px -3px gray;
+    box-shadow:         0 2px 5px -3px gray;}
+    #headsup .navbar .navbtn {
+      float: right;
+      padding-top: 6px;
+      height: 28px;
+      width: 28px;
+      resize: none;
+      height: inherit;
+      text-align: center;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      color: black;
+      cursor: pointer;
+    }
+  #headsup .navbody {
+    width: inherit;
+    height: inherit;
+    resize: inherit;
+    padding: 8px;
+    color: rgb(94, 94, 94);
+    font-size: 13px;
+    font-family: 'icomoon';
+    cursor: text;
+  }
+
+/*.svgcanvas {
+  margin-top: 20px;
+  height: 800px;
+  overflow: scroll;
+}
+*/
+
+/* override the svg dimensions from nvd3.css */
+svg {
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+/* show selected bar in barchart */
+svg .nv-bar.clicked {
+    fill: lightgreen; }
+
+#barChart {
+    width: 100%;
+/*    height: 300px;*/
+    margin: 0px; }
+    #barChart svg {
+      width: 100%;
+      height: 100%;
+    }
+
+#themecanvas svg {
+  /*width: 100%;*/
+  /*height: 100%;*/
+}
+
+#sheetThumbs img {
+    margin-right: 10px;
+}
+
+.project-view-column #viewer {
+	width: 100%;
+	height: 90%;
+}

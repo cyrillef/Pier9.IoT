@@ -1,0 +1,10 @@
+{
+  "name": "MQTT",
+  "version": "0.1.0",
+  "description": "MQTT Broker",
+  "main": "moscaServer.js",
+  "author": "Alex Chien",
+  "dependencies": {
+    "mosca": "^0.32.0"
+  }
+}
