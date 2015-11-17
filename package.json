@@ -43,7 +43,8 @@
 		"morgan": "1.x",
 		"request": "*",
 		"socket.io": "0.9.x",
-		"view-and-data": "^1.0.6"
+		"view-and-data": "^1.0.6",
+		"bower": "^1.6.5"
 	},
 	"devDependencies": {},
 	"optionalDependencies": {}
