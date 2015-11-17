@@ -6,10 +6,10 @@
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cyrillef/Plougonvelin-Heroku.git"
+		"url": "https://github.com/cyrillef/Pier9.IoT.git"
 	},
 	"bugs": {
-		"url": "https://github.com/cyrillef/Plougonvelin-Heroku/issues"
+		"url": "https://github.com/cyrillef/Pier9.IoT/issues"
 	},
 	"author": "Various - Autodesk",
 	"contributors": [
@@ -23,8 +23,9 @@
 		"npm": ">= 2.10.1"
 	},
 	"scripts": {
-		"predeploy": "echo Deploying Server",
-		"postdepoly": "echo Server Deployed"
+		"start": "node server.js",
+		"debug": "node --debug-brk=5858 --nolazy server.js",
+		"postinstall": "bower install"
 	},
 	"files": [
 		"LICENSE",
