@@ -139,6 +139,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 	var _mqttClient =null ;
 
     //this.poiNavigationMenu
+	//this.webpage
 
 	this.update =function (timeStamp) {
         //requestAnimationFrame (this.update) ;
@@ -146,6 +147,9 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         Object.keys (_sensorPanels).map (function (sensorid) {
             _sensorPanelRenderer.render (_sensorPanels [sensorid].scene (), _camera) ;
         }) ;
+
+		if ( this.webpage )
+			_sensorPanelRenderer.render (this.webpage.scene, _camera) ;
         //controls.update () ;
 	} ;
 
@@ -204,21 +208,12 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
             this.createPOINavigationMenu () ;
             this.createPOIMarkers () ;
         }
+		if ( this.webpage === undefined )
+			this.createWebpage () ;
 
         _viewer.addEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, $.proxy (this.onItemSelected, this)) ;
         _viewer.addEventListener (Autodesk.Viewing.CAMERA_CHANGE_EVENT, $.proxy (this.onCameraChanged, this)) ;
 		_viewer.addEventListener (Autodesk.Viewing.VIEWER_RESIZE_EVENT, $.proxy (this.onViewportSizeChanged, this)) ;
-
-		// todo debug
-		//setTimeout ( function () {
-		//var sensorid ='b0b448bf5d87' ;
-		//_self.navigate (oPOI [sensorid].sensors ['viewfrom'], oPOI [sensorid].sensors ['position']) ;
-		//if ( _sensorPanels [sensorid] === undefined ) {
-		//	_sensorPanels [sensorid] =new Autodesk.Viewing.Extensions.IoTTool.SensorPanel (sensorid, _self) ;
-		//	_sensorPanels [sensorid].initializeFeeds () ;
-		//}
-		//_self.activateSensorPanel (_sensorPanels [sensorid]) ;
-		//}, 2000) ;
     } ;
 
 	this.deactivate =function (name) {
@@ -276,6 +271,37 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         _navapi.orientCameraUp () ;
         _viewer.select ([]) ;
     } ;
+
+	this.createWebpage =function () {
+		var webpage =$(document.createElement ('iframe'))
+			.attr ('id', 'webpage')
+			.attr ('src', '')
+			.attr ('width', '400px').attr ('height', '400px')
+			.css ('display', 'none')
+			.css ('pointer-events', 'auto') ; // not none
+		var div =new THREE.CSS3DObject (webpage [0]) ;
+		div.position.set (0, 0, 0) ;
+		div.rotation.set (0, 0, 0) ; // Math.PI / 2 ;
+		div.scale.set (.1, .1, .1) ;
+
+		var scene =new THREE.Scene () ;
+		scene.add (div) ;
+
+		this.webpage ={ 'scene': scene, 'webpage': webpage, 'css3d': div } ;
+	} ;
+
+	this.webpageNavigate =function (sensor, url) {
+		this.webpage.webpage
+			//.css ('pointer-events', 'auto')
+			.attr ('src', url) ;
+
+		this.webpage.css3d.position.set (sensor.position.x, sensor.position.y, sensor.position.z) ;
+		this.webpage.css3d.rotation.set (sensor.rotation.x, sensor.rotation.y, sensor.rotation.z) ; // Math.PI / 2 ;
+		this.webpage.css3d.scale.set (sensor.scale, sensor.scale, sensor.scale) ;
+		this.navigate (sensor.viewfrom, sensor.position) ;
+
+		this.activateWebpageNavigation () ;
+	} ;
 
 	this.createPOINavigationMenu =function () {
         var self =this ;
@@ -363,7 +389,8 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 			if (   (typeof value.sensors.dbid === 'number' && value.sensors.dbid === evt.dbIdArray [0])
 				|| (typeof value.sensors.dbid === 'object' && $.inArray (evt.dbIdArray [0], value.sensors.dbid) != -1)
 			) {
-				window.open (value.url) ;
+				//window.open (value.url) ;
+				self.webpageNavigate (value.sensors, value.url) ;
 			}
 		}) ;
     } ;
@@ -389,7 +416,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
                 .click (function (evt) {
                     evt.preventDefault () ;
                     var sensorid =$(evt.target).attr ('id') ;
-                    self.navigate (oPOI [sensorid].sensors ['viewfrom'], oPOI [sensorid].sensors ['position']) ;
+                    self.navigate (oPOI [sensorid].sensors.viewfrom, oPOI [sensorid].sensors.position) ;
                     if ( _sensorPanels [sensorid] === undefined ) {
                         _sensorPanels [sensorid] =new Autodesk.Viewing.Extensions.IoTTool.SensorPanel (sensorid, _self) ;
                         _sensorPanels [sensorid].initializeFeeds () ;
@@ -517,11 +544,19 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 
     this.activatePOINavigation =function () {
         this.poiNavigationMenu.css ('display', 'block') ;
+		this.webpage.webpage.css ('display', 'none') ;
         $('div[id*=-panel]').css ('display', 'none') ;
     } ;
 
+	this.activateWebpageNavigation =function () {
+		this.poiNavigationMenu.css ('display', 'none') ;
+		this.webpage.webpage.css ('display', 'block') ;
+		$('div[id*=-panel]').css ('display', 'none') ;
+	} ;
+
     this.activateSensorPanel =function (panel) {
         this.poiNavigationMenu.css ('display', 'none') ;
+		this.webpage.webpage.css ('display', 'none') ;
         panel.activate () ;
     } ;
 
