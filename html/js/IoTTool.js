@@ -285,7 +285,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
             function (evt) {
                 evt.preventDefault () ;
 				window.radialMenu.toggleOptions ($(this).parent ().parent ().parent ()) ;
-                var poiid =$(this).attr ('for') ;
+                var poiid =$(this).attr ('for').split ('-') [0] ;
                 var poiKey =Object.keys (oPOI).filter (function (rkey) { return (rkey.replace (/\W/g, '') === poiid) ; }) [0] ;
                 var poi =oPOI [poiKey] ;
                 self.navigate (poi.position, poi.target) ;
@@ -309,38 +309,63 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         if ( menudef.constructor === Array )
             $.each (menudef, function (key, value) {
                 var id =value.replace (/\W/g, '') ;
-                var li =$(document.createElement ('li')).appendTo (ul) ;
-                var input =$(document.createElement ('input')).attr ('id', id).attr ('type', 'checkbox').appendTo (li) ;
+                var li =$(document.createElement ('li'))
+					.appendTo (ul) ;
+                var input =$(document.createElement ('input'))
+					.attr ('id', id + '-input')
+					.attr ('type', 'checkbox')
+					.appendTo (li) ;
                 $(document.createElement ('label'))
-					.attr ('for', id)
+					.attr ('for', id + '-input')
 					.text (value)
-					.appendTo (li).click (clickCB) ;
+					.appendTo (li)
+					.click (clickCB) ;
             }) ;
         else
             $.each (menudef, function (key, value) {
                 var id =bConvert ? key.replace (/\W/g, '') : key ;
-                var li =$(document.createElement ('li')).appendTo (ul) ;
-                var input =$(document.createElement ('input')).attr ('id', id).attr ('type', 'checkbox').appendTo (li) ;
+                var li =$(document.createElement ('li'))
+					.appendTo (ul) ;
+                var input =$(document.createElement ('input'))
+					.attr ('id', id + '-input')
+					.attr ('type', 'checkbox')
+					.appendTo (li) ;
                 var elt =$(document.createElement ('label'))
-					.attr ('for', id)
+					.attr ('for', id + '-input')
 					.attr ('title', typeof value === 'string' ? value : value.name)
 					.text (value.hasOwnProperty ('icon') ? '' : value.name)
-					.appendTo (li).click (clickCB) ;
+					.appendTo (li)
+					.click (clickCB) ;
 				if ( value.hasOwnProperty ('icon') )
-					elt.css ('background', 'url(' + value.icon + ') no-repeat center center') ;
+					elt.css ('background', 'url(' + value.icon + ') no-repeat center center')
+						.addClass (value.iconClass) ;
+
             }) ;
-        var b =$(document.createElement ('button')).appendTo (s)
+        var b =$(document.createElement ('button'))
+			.appendTo (s)
             .click (function (e) {
                 window.radialMenu.toggleOptions ($(this).parent ()) ;
             }) ;
-        $(document.createElement ('img')).attr ('src', img).appendTo (b) ;
+        $(document.createElement ('img'))
+			.attr ('src', img)
+			.appendTo (b) ;
         return (menu) ;
     } ;
 
     this.onItemSelected =function (evt) {
         var self =this ;
 		console.log (evt.dbIdArray [0]) ;
-        return (this.activatePOINavigation ()) ;
+
+		this.activatePOINavigation () ;
+		if ( evt.dbIdArray == undefined || evt.dbIdArray.length == 0 )
+	        return ;
+		$.each (oPOI, function (key, value) {
+			if (   (typeof value.sensors.dbid === 'string' && value.sensors.dbid === evt.dbIdArray [0])
+				|| (typeof value.sensors.dbid === 'object' && $.inArray (evt.dbIdArray [0], value.sensors.dbid) != -1)
+			) {
+				window.open (value.url) ;
+			}
+		}) ;
     } ;
 
     this.createPOIMarkers =function () {
@@ -353,11 +378,13 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
             $(document.createElement ('div'))
                 //.attr ('class', '')
                 .attr ('id', key)
+				.attr ('title', 'Sensor ID: ' + key + ' [' + oPOI [key].name + ']')
                 .css ('width', '32px').css ('height', '32px')
                 .css ('position', 'absolute').css ('top', (screenPoint.y + 'px')).css ('left', (screenPoint.x + 'px'))
                 .css ('background', 'transparent url(/images/sensortag.png) no-repeat')
                 .css ('pointer-events', 'auto').css ('cursor', 'pointer')
-                .css ('z-index', '6')
+				//.css ('border', 'border: solid 1px red')
+                .css ('z-index', '4')
                 .appendTo (this.poiNavigationMenu)
                 .click (function (evt) {
                     evt.preventDefault () ;
@@ -377,14 +404,60 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         _navapi.toPerspective () ;
         _navapi.setVerticalFov (75, true) ;
 
+		var boxes =[] ;
         for ( var key in oPOI ) {
             var poi =oPOI [key] ;
             var screenPoint =_self.worldToScreen (poi.sensors.position, self.camera ()) ;
             //var offset =self.getClientOffset (self.container ()) ;
-            $('div#' + key)
-                .css ('top', (screenPoint.y + 'px')).css ('left', (screenPoint.x + 'px')) ;
+
+            var elt =$('div#' + key) ;
+			elt.css ('top', (screenPoint.y + 'px')).css ('left', (screenPoint.x + 'px')) ;
+
+			boxes.push ({
+				x: elt.position ().left, y: elt.position ().top,
+				width: elt.outerWidth (false), height: elt.outerHeight (false)
+			}) ;
         }
+
+		// Now check the menu does not overlap markers
+		var menuImg =this.poiNavigationMenu.children ('div.menu-selector') ;
+		menuImg.css ('left', '50%').css ('top', '50%') ;
+		var rect ={
+			x: (menuImg.position ().left + parseFloat (menuImg.css ('margin-left'))),
+			y: (menuImg.position ().top + parseFloat (menuImg.css ('margin-top'))),
+			width: menuImg.outerWidth (false), height: menuImg.outerHeight (false)
+		} ;
+		for ( var i =0 ; i < boxes.length ; i++ ) {
+			while ( this.intersects (rect, boxes [i]) ) {
+				rect.x +=32 ;
+				//rect.y -=16 ;
+				i =-1 ;
+				//console.log (rect) ;
+				break ;
+			}
+		}
+		menuImg.css ('left', rect.x + 'px').css ('top', rect.y + 'px') ;
     } ;
+
+	this.overlap =function (rect1, rect2) {
+		return (
+			   rect1.x < rect2.x + rect2.width
+			&& rect1.x + rect1.width > rect2.x
+
+			&& rect1.y + rect1.height > rect2.y //<
+			&& rect1.y < rect2.y + rect2.height //>
+		) ;
+	} ;
+
+	this.intersects =function (rect1, rect2) {
+		return (!(
+			   rect1.x > rect2.x + rect2.width
+			|| rect1.x + rect1.width < rect2.x
+
+			|| rect1.y + rect1.height < rect2.y
+			|| rect1.y > rect2.y + rect2.height
+		)) ;
+	} ;
 
 	this.onViewportSizeChanged =function () {
 		if ( this.poiNavigationMenu !== undefined )

@@ -84,11 +84,11 @@
 }
 
 .menu-selector li input + label:hover {
-	background: #A6DA7F;
+	background-color: #A6DA7F;
 }
 
 .menu-selector li input:checked + label {
-    background: #5cb85c;
+    background-color: #5cb85c;
     color: white;
 }
 
@@ -131,4 +131,51 @@
     height: 32px;
     background: transparent;
     padding: 0px;
+	min-width: 32px;
+}
+
+/* Debug */
+/*.menu-selector {
+	border: solid 1px red;
+}
+
+.menu-selector ul {
+	border: solid 1px yellow;
+}
+
+.menu-selector li {
+	border: solid 1px blue;
+}
+
+.menu-selector input {
+	border: solid 1px black;
+}
+
+.menu-selector label {
+	border: solid 1px magenta;
+}
+
+.menu-selector button {
+	border: solid 1px green;
+}*/
+
+.menu-selector.open li input + label.small {
+	width: 64px;
+	height: 64px;
+	line-height: 64px;
+	margin-left: -32px;
+}
+
+.menu-selector.open li input + label.medium {
+	width: 128px;
+	height: 128px;
+	line-height: 128px;
+	margin-left: -64px;
+}
+
+.menu-selector.open li input + label.large {
+	width: 256px;
+	height: 256px;
+	line-height: 256px;
+	margin-left: -128px;
 }
