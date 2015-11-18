@@ -360,7 +360,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		if ( evt.dbIdArray == undefined || evt.dbIdArray.length == 0 )
 	        return ;
 		$.each (oPOI, function (key, value) {
-			if (   (typeof value.sensors.dbid === 'string' && value.sensors.dbid === evt.dbIdArray [0])
+			if (   (typeof value.sensors.dbid === 'number' && value.sensors.dbid === evt.dbIdArray [0])
 				|| (typeof value.sensors.dbid === 'object' && $.inArray (evt.dbIdArray [0], value.sensors.dbid) != -1)
 			) {
 				window.open (value.url) ;

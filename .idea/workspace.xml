@@ -27,8 +27,8 @@
       <file leaf-file-name="poi.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/data/poi.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1360">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state vertical-scroll-proportion="-18.961538" vertical-offset="306" max-vertical-offset="1360">
+              <caret line="47" column="24" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -37,8 +37,8 @@
       <file leaf-file-name="IoTTool.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6119403" vertical-offset="1885" max-vertical-offset="3570">
-              <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.58656716" vertical-offset="1885" max-vertical-offset="3570">
+              <caret line="365" column="34" selection-start-line="365" selection-start-column="34" selection-end-line="365" selection-end-column="34" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#1279#2507#0" expanded="false" />
@@ -105,8 +105,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="911" />
-    <option name="y" value="91" />
+    <option name="x" value="1155" />
+    <option name="y" value="183" />
     <option name="width" value="1291" />
     <option name="height" value="1141" />
   </component>
@@ -260,7 +260,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="911" y="91" width="1291" height="1141" extended-state="0" />
+    <frame x="1155" y="183" width="1291" height="1141" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -325,16 +325,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/data/poi.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1360">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="306" max-vertical-offset="1360">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6119403" vertical-offset="1885" max-vertical-offset="3570">
-          <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.58656716" vertical-offset="1885" max-vertical-offset="3570">
+          <caret line="365" column="34" selection-start-line="365" selection-start-column="34" selection-end-line="365" selection-end-column="34" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#1279#2507#0" expanded="false" />
