@@ -266,6 +266,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 
     this.navigate =function (position, target) {
         _navapi.setTarget (new THREE.Vector3 ().copy (target)) ;
+        _navapi.setPivotPoint (new THREE.Vector3 ().copy (target)) ;
         _navapi.setPosition (new THREE.Vector3 ().copy (position)) ;
         _camera.zoom =1.0 ;
         _navapi.orientCameraUp () ;
