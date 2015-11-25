@@ -270,6 +270,16 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         _navapi.setPosition (new THREE.Vector3 ().copy (position)) ;
         _camera.zoom =1.0 ;
         _navapi.orientCameraUp () ;
+		/*var destination ={
+			position: new THREE.Vector3 ().copy (position),
+			up: _camera.up.clone (),//_navapi.getAlignedUpVector ().clone (),
+			center: new THREE.Vector3 ().copy (target),
+			pivot: new THREE.Vector3 ().copy (target),
+			fov: _camera.fov,
+			worldUp: _navapi.getWorldUpVector ().clone (),
+			isOrtho: false
+		} ;
+		_viewer.autocam.goToView (destination) ;*/
         _viewer.select ([]) ;
     } ;
 
@@ -547,6 +557,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         this.poiNavigationMenu.css ('display', 'block') ;
 		this.webpage.webpage.css ('display', 'none') ;
         $('div[id*=-panel]').css ('display', 'none') ;
+		this.onCameraChanged (null) ;
     } ;
 
 	this.activateWebpageNavigation =function () {
@@ -591,7 +602,11 @@ Autodesk.Viewing.Extensions.IoTTool.SensorPanel =function (sensorid, iotTool) {
                 panel.css ('pointer-events', 'none') ;
                 $('#' + panel.attr ('id').split ('-') [0]).css ('display', 'block') ;
                 _tool.activatePOINavigation () ;
-            }) ;
+            })
+			.bind ('mousewheel', function (evt) {
+				evt.preventDefault () ;
+				_tool.viewer ().toolController.mousewheel (evt.originalEvent) ;
+		}) ;
         // CSS Object
         var div =new THREE.CSS3DObject (element [0]) ;
         div.position.set (sensor.position.x, sensor.position.y, sensor.position.z) ;
