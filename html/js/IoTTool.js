@@ -19,6 +19,10 @@
 // UNINTERRUPTED OR ERROR FREE.
 //
 
+// This variable is always 'false'. Turn it true only to configure your model
+// Select a object in the scene and see the javascript console for configuration parameters
+var configurationMode =false ;
+
 AutodeskNamespace ('Autodesk.Viewing.Extensions.IoT') ;
 
 // IoT Extension
@@ -153,7 +157,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         //controls.update () ;
 	} ;
 
-	// ToolInterface
+	// Tool Interface
 	this.isActive =function () {
 		return (_isActive) ;
 	} ;
@@ -391,20 +395,111 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 
     this.onItemSelected =function (evt) {
         var self =this ;
-		console.log (evt.dbIdArray [0]) ;
 
 		this.activatePOINavigation () ;
 		if ( evt.dbIdArray == undefined || evt.dbIdArray.length == 0 )
 	        return ;
+		//console.log (evt.dbIdArray [0]) ;
+
 		$.each (oPOI, function (key, value) {
 			if (   (typeof value.sensors.dbid === 'number' && value.sensors.dbid === evt.dbIdArray [0])
 				|| (typeof value.sensors.dbid === 'object' && $.inArray (evt.dbIdArray [0], value.sensors.dbid) != -1)
 			) {
-				//window.open (value.url) ;
-				self.webpageNavigate (value.sensors, value.url) ;
+				if ( configurationMode !== true )
+					//window.open (value.url) ;
+					self.webpageNavigate (value.sensors, value.url) ;
 			}
 		}) ;
-    } ;
+
+		// See comments at the top of the file
+		if ( configurationMode !== true )
+			return ;
+
+		// _viewer.model.getBoundingBox () // full model bounding box
+		// We need the Object bounding box, not the model
+		var bounds =new THREE.Box3 () ;
+		var box =new THREE.Box3 () ;
+		var instanceTree =_viewer.model.getData ().instanceTree ;
+		var fragList =_viewer.model.getFragmentList () ;
+		instanceTree.enumNodeFragments (
+			evt.dbIdArray [0],
+			function (fragId) {
+				fragList.getWorldBounds (fragId, box) ;
+				bounds.union (box) ;
+			},
+			true
+		) ;
+		//console.log (bounds) ;
+		var center =bounds.center () ;
+		var size =bounds.size () ;
+		var up =_navapi.getWorldUpVector () ;
+		var faceCenters =[] ; // This is sensors possible places
+		if ( up.x == 0 ) {
+			var pt =center.clone () ; pt.x += size.x / 2 ; faceCenters.push (pt) ;
+			pt =center.clone () ; pt.x -= size.x / 2 ; faceCenters.push (pt) ;
+		}
+		if ( up.y == 0 ) {
+			var pt =center.clone () ; pt.y += size.y / 2 ; faceCenters.push (pt) ;
+			pt =center.clone () ; pt.y -= size.y / 2 ; faceCenters.push (pt) ;
+		}
+		if ( up.z == 0 ) {
+			var pt =center.clone () ; pt.z += size.z / 2 ; faceCenters.push (pt) ;
+			pt =center.clone () ; pt.z -= size.z / 2 ; faceCenters.push (pt) ;
+		}
+		// Now choose the closest to the camera viewpoint
+		var d0 =-1, i0 =-1 ;
+		for ( var i =0 ; i < faceCenters.length ; i++ ) {
+			var d =_camera.position.distanceTo (faceCenters [i]) ;
+			if ( i0 === -1 || d < d0 ) {
+				i0 =i ;
+				d0 =d ;
+			}
+		}
+		var position =faceCenters [i0].clone () ;
+		var viewDir =center.clone () ;
+		viewDir.sub (position) ;
+		viewDir.normalize () ;
+		position.sub (viewDir.multiplyScalar (5)) ;
+		this.navigate (position, faceCenters [i0]) ;
+
+		_viewer.getProperties (evt.dbIdArray [0], function (result) {
+			//console.log (result) ;
+			var name =result.name || "" ;
+			var typeName =findProperty(result.properties, "Type Name") ;
+			if ( typeName !== null )
+				name =typeName.displayValue ;
+			var def ={
+				"name": name,
+				"icon": "/images/" + name.replace (/\W/g, '-') + "-icon128.png",
+				"iconClass": "medium",
+				"image": "/images/" + name.replace (/\W/g, '-') + ".png",
+				"url": "",
+				"position": position,
+				"target": center,
+				"id": (result.externalId || ""),
+				"sensors": {
+					"id": "",
+					"dbid": evt.dbIdArray [0],
+					"position": faceCenters [i0],
+					"viewfrom": position,
+					"scale": 0.01,
+					"rotation": { "x": _camera.rotation._x, "y": _camera.rotation._y, "z": _camera.rotation._z }
+				}
+			} ;
+			console.log (JSON.stringify (def)) ;
+		}) ;
+
+	} ;
+
+	findProperty =function (properties, displayName) {
+		for ( var i =0 ; i < properties.length ; i++ ) {
+			if (   properties [i].hasOwnProperty ('displayName')
+				&& properties [i] ['displayName'] === displayName
+			)
+				return (properties [i]) ;
+		}
+		return (null) ;
+	} ;
 
     this.createPOIMarkers =function () {
         var self =this ;
@@ -802,6 +897,50 @@ Autodesk.Viewing.Extensions.IoTTool.SensorPanel =function (sensorid, iotTool) {
     } ;
 
 } ;
+
+
+// Configuration Module
+/*Autodesk.Viewing.Extensions.IoTTool.SensorPanel =function (iotTool) {
+	var _self =this ;
+	var _tool =iotTool ; this.tool =function () { return (_tool) ; } ;
+	var _isMac =(navigator.userAgent.search ("Mac OS") != -1) ;
+
+	var _modifierState ={ SHIFT: 0, ALT: 0, CONTROL: 0 } ; // TODO: Use the hotkeymanager for these.
+	var _keys =Autodesk.Viewing.theHotkeyManager.KEYCODES ;
+
+	// gamepad
+	var _gamepadModule ;
+	// If this browser supports gamepad, instantiate GamepadModule
+	if ( navigator.getGamepads || !!navigator.webkitGetGamepads || !!navigator.webkitGamepads )
+		_gamepadModule =new Autodesk.Viewing.Extensions.GamepadModule (viewerapi) ;
+
+	this.activate =function (name) {
+		addCrosshair () ;
+
+		_gamepadModule.activate (this.getName ()) ;
+	} ;
+
+	this.deactivate =function (name) {
+		removeCrosshair () ;
+
+		if ( _gamepadModule )
+			_gamepadModule.deactivate () ;
+	} ;
+
+	addCrosshair =function () {
+		if ( typeof stringToDOM === "function" ) {
+			this.crosshair =stringToDOM ('<div id="remote-crosshair"><div class="crosshair-v"></div><div class="crosshair-h"></div></div>') ;
+			viewerapi.canvasWrap.appendChild (this.crosshair) ;
+		}
+	} ;
+
+	removeCrosshair =function () {
+		if ( this.crosshair )
+			this.crosshair.remove () ;
+	} ;
+
+} ;*/
+
 
 // Utilities
 function guid () {

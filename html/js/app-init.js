@@ -17,6 +17,7 @@
 
 define ([ 'domReady!', 'threejs', 'viewer3d', 'viewer', 'IoTTool', 'app' ],
 	function (doc, t, v3d, v, iot, app) {
+		//'use strict';
 
 		// If not using shim, you can do this instead.
 
@@ -32,14 +33,17 @@ define ([ 'domReady!', 'threejs', 'viewer3d', 'viewer', 'IoTTool', 'app' ],
 		//) ;
 
 		// Initialize our viewer instance
-		app.initialize (
-			$('#viewer'),
-			'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y3lyaWxsZS0yMDE1MTAxNS9QaWVyOS5kd2Z4',
-			true // toolbars
-		) ;
+		var model =GetURLParameter ('model') ;
+		var config ='poi' + (model !== undefined ? '-' + model : '') ;
+		var models={
+			'poi': 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y3lyaWxsZS0yMDE1MTAxNS9QaWVyOS5kd2Z4', // Full model
+			'poi-original': 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y3lyaWxsZS0yMDE1MTAxNS9QaWVyOS5kd2Z4', // Full model, with original definition
+			'poi-reduced': 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y3lyaWxsZS0yMDE1MTAxNS9QaWVyOV9Xb3Jrc2hvcC5ydnQ=' // Reduced model
+		} ;
+		app.initialize ($('#viewer'), models [config], true) ; // true = with toolbars
 
 		// Get our POI definition from the server
-	    $.get ('/data/poi.json', function (data, status) {
+	    $.get ('/data/' + config + '.json', function (data, status) {
 			oPOI =data ;
 	    }).fail (function (data) {
 	        console.log (data) ;
@@ -53,6 +57,16 @@ define ([ 'domReady!', 'threejs', 'viewer3d', 'viewer', 'IoTTool', 'app' ],
 			console.log (data) ;
 			oMQTT ={} ;
 		}) ;
+
+		function GetURLParameter (sParam) {
+			var sPageURL =window.location.search.substring (1) ;
+			var sURLVariables =sPageURL.split ('&') ;
+			for ( var i =0 ; i < sURLVariables.length ; i++ ) {
+				var sParameterName =sURLVariables [i].split ('=') ;
+				if ( sParameterName [0] == sParam )
+					return (sParameterName [1]) ;
+			}
+		}
 
 	}
 ) ;

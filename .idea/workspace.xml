@@ -23,76 +23,18 @@
     <favorites_list name="Pier9.IoT" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1649">
-              <caret line="60" column="90" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="90" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IoTTool.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76967096" vertical-offset="2981" max-vertical-offset="4335">
-              <caret line="602" column="16" selection-start-line="602" selection-start-column="16" selection-end-line="602" selection-end-column="16" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#1279#2507#0" expanded="false" />
-                <element signature="e#2591#3741#0" expanded="false" />
-                <element signature="e#3816#4434#0" expanded="false" />
-                <element signature="e#6005#6032#0" expanded="false" />
-                <element signature="e#6064#6088#0" expanded="false" />
-                <element signature="e#6119#6147#0" expanded="false" />
-                <element signature="e#8059#8543#0" expanded="false" />
-                <element signature="e#8594#9547#0" expanded="false" />
-                <element signature="e#9580#11747#0" expanded="false" />
-                <element signature="e#11798#12478#0" expanded="false" />
-                <element signature="e#12515#13035#0" expanded="false" />
-                <element signature="e#13085#13547#0" expanded="false" />
-                <element signature="e#13594#14199#0" expanded="false" />
-                <element signature="e#14273#16628#0" expanded="false" />
-                <element signature="e#16672#17205#0" expanded="false" />
-                <element signature="e#17248#18854#0" expanded="false" />
-                <element signature="e#18899#20212#0" expanded="false" />
-                <element signature="e#20255#20439#0" expanded="false" />
-                <element signature="e#20485#20664#0" expanded="false" />
-                <element signature="e#20709#20897#0" expanded="false" />
-                <element signature="e#20950#21180#0" expanded="false" />
-                <element signature="e#21238#22027#0" expanded="false" />
-                <element signature="e#22072#22460#0" expanded="false" />
-                <element signature="e#22509#22817#0" expanded="false" />
-                <element signature="e#23115#23269#0" expanded="false" />
-                <element signature="e#23320#23461#0" expanded="false" />
-                <element signature="e#25548#27692#0" expanded="false" />
-                <element signature="e#27742#28381#0" expanded="false" />
-                <element signature="e#28438#29160#0" expanded="false" />
-                <element signature="e#29220#30425#0" expanded="false" />
-                <element signature="e#30503#30653#0" expanded="false" />
-                <element signature="e#30676#30751#0" expanded="false" />
-                <element signature="e#30806#31145#0" expanded="false" />
-                <element signature="e#31199#31739#0" expanded="false" />
-                <element signature="e#31774#31873#0" expanded="false" />
-                <element signature="n#!!block;n#guid#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/html/data/poi2.json" />
         <option value="$PROJECT_DIR$/html/css/radial-menu.css" />
+        <option value="$PROJECT_DIR$/html/data/poi2.json" />
+        <option value="$PROJECT_DIR$/html/index.html" />
+        <option value="$PROJECT_DIR$/html/data/poi-reduced.json" />
         <option value="$PROJECT_DIR$/html/data/poi.json" />
         <option value="$PROJECT_DIR$/html/js/IoTTool.js" />
+        <option value="$PROJECT_DIR$/html/js/app-init.js" />
       </list>
     </option>
   </component>
@@ -100,9 +42,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="717" />
-    <option name="y" value="90" />
-    <option name="width" value="1291" />
+    <option name="x" value="933" />
+    <option name="y" value="243" />
+    <option name="width" value="1498" />
     <option name="height" value="1141" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -128,7 +70,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -197,26 +138,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pier9.IoT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pier9.IoT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -226,9 +150,45 @@
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript 1.5" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJSON" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cyrille\Documents\GitHub\Pier9.IoT\html\data" />
+    </key>
   </component>
   <component name="RunManager" selected="Node.js.local">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <method />
     </configuration>
     <configuration default="false" name="local" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
@@ -259,25 +219,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="717" y="90" width="1291" height="1141" extended-state="0" />
-    <editor active="true" />
+    <frame x="933" y="243" width="1498" height="1141" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903865" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2666006" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26157597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2666006" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18636996" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -301,217 +261,64 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
+    <entry file="file://$PROJECT_DIR$/html/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1649">
+          <caret line="60" column="90" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="90" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="5457">
-          <caret line="280" column="34" selection-start-line="280" selection-start-column="34" selection-end-line="280" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1279#2507#0" expanded="false" />
-            <element signature="e#2591#3741#0" expanded="false" />
-            <element signature="e#3816#4434#0" expanded="false" />
-            <element signature="e#6005#6032#0" expanded="false" />
-            <element signature="e#6064#6088#0" expanded="false" />
-            <element signature="e#6119#6147#0" expanded="false" />
-            <element signature="e#8059#8543#0" expanded="false" />
-            <element signature="e#8594#9547#0" expanded="false" />
-            <element signature="e#9580#11747#0" expanded="false" />
-            <element signature="e#11798#12478#0" expanded="false" />
-            <element signature="e#12515#13035#0" expanded="false" />
-            <element signature="e#13085#13547#0" expanded="false" />
-            <element signature="e#13594#14199#0" expanded="false" />
-            <element signature="e#14273#16628#0" expanded="false" />
-            <element signature="e#16672#17205#0" expanded="false" />
-            <element signature="e#17248#18854#0" expanded="false" />
-            <element signature="e#18899#20212#0" expanded="false" />
-            <element signature="e#20255#20439#0" expanded="false" />
-            <element signature="e#20485#20664#0" expanded="false" />
-            <element signature="e#20709#20897#0" expanded="false" />
-            <element signature="e#20950#21180#0" expanded="false" />
-            <element signature="e#21238#22027#0" expanded="false" />
-            <element signature="e#22072#22460#0" expanded="false" />
-            <element signature="e#22509#22817#0" expanded="false" />
-            <element signature="e#23115#23269#0" expanded="false" />
-            <element signature="e#23320#23461#0" expanded="false" />
-            <element signature="e#25548#27692#0" expanded="false" />
-            <element signature="e#27742#28381#0" expanded="false" />
-            <element signature="e#28438#29160#0" expanded="false" />
-            <element signature="e#29220#30425#0" expanded="false" />
-            <element signature="e#30503#30653#0" expanded="false" />
-            <element signature="e#30676#30751#0" expanded="false" />
-            <element signature="e#30806#31145#0" expanded="false" />
-            <element signature="e#31199#31739#0" expanded="false" />
-            <element signature="e#31774#31873#0" expanded="false" />
-            <element signature="n#!!block;n#guid#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4335">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="5457">
-          <caret line="280" column="34" selection-start-line="280" selection-start-column="34" selection-end-line="280" selection-end-column="34" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1279#2507#0" expanded="false" />
-            <element signature="e#2591#3741#0" expanded="false" />
-            <element signature="e#3816#4434#0" expanded="false" />
-            <element signature="e#6005#6032#0" expanded="false" />
-            <element signature="e#6064#6088#0" expanded="false" />
-            <element signature="e#6119#6147#0" expanded="false" />
-            <element signature="e#8059#8543#0" expanded="false" />
-            <element signature="e#8594#9547#0" expanded="false" />
-            <element signature="e#9580#11747#0" expanded="false" />
-            <element signature="e#11798#12478#0" expanded="false" />
-            <element signature="e#12515#13035#0" expanded="false" />
-            <element signature="e#13085#13547#0" expanded="false" />
-            <element signature="e#13594#14199#0" expanded="false" />
-            <element signature="e#14273#16628#0" expanded="false" />
-            <element signature="e#16672#17205#0" expanded="false" />
-            <element signature="e#17248#18854#0" expanded="false" />
-            <element signature="e#18899#20212#0" expanded="false" />
-            <element signature="e#20255#20439#0" expanded="false" />
-            <element signature="e#20485#20664#0" expanded="false" />
-            <element signature="e#20709#20897#0" expanded="false" />
-            <element signature="e#20950#21180#0" expanded="false" />
-            <element signature="e#21238#22027#0" expanded="false" />
-            <element signature="e#22072#22460#0" expanded="false" />
-            <element signature="e#22509#22817#0" expanded="false" />
-            <element signature="e#23115#23269#0" expanded="false" />
-            <element signature="e#23320#23461#0" expanded="false" />
-            <element signature="e#25548#27692#0" expanded="false" />
-            <element signature="e#27742#28381#0" expanded="false" />
-            <element signature="e#28438#29160#0" expanded="false" />
-            <element signature="e#29220#30425#0" expanded="false" />
-            <element signature="e#30503#30653#0" expanded="false" />
-            <element signature="e#30676#30751#0" expanded="false" />
-            <element signature="e#30806#31145#0" expanded="false" />
-            <element signature="e#31199#31739#0" expanded="false" />
-            <element signature="e#31774#31873#0" expanded="false" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1481#2709#0" expanded="false" />
+            <element signature="e#2793#3943#0" expanded="false" />
+            <element signature="e#4018#4636#0" expanded="false" />
+            <element signature="e#6208#6235#0" expanded="false" />
+            <element signature="e#6267#6291#0" expanded="false" />
+            <element signature="e#6322#6350#0" expanded="false" />
+            <element signature="e#8262#8746#0" expanded="false" />
+            <element signature="e#8797#9750#0" expanded="false" />
+            <element signature="e#9783#11950#0" expanded="false" />
+            <element signature="e#12001#12681#0" expanded="false" />
+            <element signature="e#12718#13238#0" expanded="false" />
+            <element signature="e#13288#13750#0" expanded="false" />
+            <element signature="e#13797#14402#0" expanded="false" />
+            <element signature="e#14476#16831#0" expanded="false" />
+            <element signature="e#16875#20014#0" expanded="false" />
+            <element signature="e#20333#21939#0" expanded="false" />
+            <element signature="e#21984#23297#0" expanded="false" />
+            <element signature="e#23340#23524#0" expanded="false" />
+            <element signature="e#23570#23749#0" expanded="false" />
+            <element signature="e#23794#23982#0" expanded="false" />
+            <element signature="e#24035#24265#0" expanded="false" />
+            <element signature="e#24323#25112#0" expanded="false" />
+            <element signature="e#25157#25545#0" expanded="false" />
+            <element signature="e#25594#25902#0" expanded="false" />
+            <element signature="e#26200#26354#0" expanded="false" />
+            <element signature="e#26405#26546#0" expanded="false" />
+            <element signature="e#28633#30777#0" expanded="false" />
+            <element signature="e#30827#31466#0" expanded="false" />
+            <element signature="e#31523#32245#0" expanded="false" />
+            <element signature="e#32305#33510#0" expanded="false" />
+            <element signature="e#33588#33738#0" expanded="false" />
+            <element signature="e#33761#33836#0" expanded="false" />
+            <element signature="e#33891#34230#0" expanded="false" />
+            <element signature="e#34284#34824#0" expanded="false" />
+            <element signature="e#34859#34958#0" expanded="false" />
             <element signature="n#!!block;n#guid#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2268" max-vertical-offset="5338">
-          <caret line="278" column="34" selection-start-line="278" selection-start-column="34" selection-end-line="278" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1279#2507#0" expanded="false" />
-            <element signature="e#2591#3741#0" expanded="false" />
-            <element signature="e#3816#4434#0" expanded="false" />
-            <element signature="e#6005#6032#0" expanded="false" />
-            <element signature="e#6064#6088#0" expanded="false" />
-            <element signature="e#6119#6147#0" expanded="false" />
-            <element signature="e#8059#8543#0" expanded="false" />
-            <element signature="e#8594#9547#0" expanded="false" />
-            <element signature="e#9580#11747#0" expanded="false" />
-            <element signature="e#11798#12478#0" expanded="false" />
-            <element signature="e#12515#13035#0" expanded="false" />
-            <element signature="e#13085#13547#0" expanded="false" />
-            <element signature="e#13594#14199#0" expanded="false" />
-            <element signature="e#14273#16628#0" expanded="false" />
-            <element signature="e#16672#17205#0" expanded="false" />
-            <element signature="e#17248#18854#0" expanded="false" />
-            <element signature="e#18899#20212#0" expanded="false" />
-            <element signature="e#20255#20439#0" expanded="false" />
-            <element signature="e#20485#20664#0" expanded="false" />
-            <element signature="e#20709#20897#0" expanded="false" />
-            <element signature="e#20950#21180#0" expanded="false" />
-            <element signature="e#21238#22027#0" expanded="false" />
-            <element signature="e#22072#22460#0" expanded="false" />
-            <element signature="e#22509#22817#0" expanded="false" />
-            <element signature="e#23115#23269#0" expanded="false" />
-            <element signature="e#23320#23461#0" expanded="false" />
-            <element signature="e#25548#27692#0" expanded="false" />
-            <element signature="e#27742#28381#0" expanded="false" />
-            <element signature="e#28438#29160#0" expanded="false" />
-            <element signature="e#29220#30425#0" expanded="false" />
-            <element signature="e#30503#30653#0" expanded="false" />
-            <element signature="e#30676#30751#0" expanded="false" />
-            <element signature="e#30806#31145#0" expanded="false" />
-            <element signature="e#31199#31739#0" expanded="false" />
-            <element signature="e#31774#31873#0" expanded="false" />
-            <element signature="n#!!block;n#guid#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/css/IoTTools.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07467057" vertical-offset="0" max-vertical-offset="1717">
-          <caret line="3" column="49" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2769679" vertical-offset="382" max-vertical-offset="1360">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,46 +334,370 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76967096" vertical-offset="2981" max-vertical-offset="4335">
-          <caret line="602" column="16" selection-start-line="602" selection-start-column="16" selection-end-line="602" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4335">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1481#2709#0" expanded="false" />
+            <element signature="e#2793#3943#0" expanded="false" />
+            <element signature="e#4018#4636#0" expanded="false" />
+            <element signature="e#6208#6235#0" expanded="false" />
+            <element signature="e#6267#6291#0" expanded="false" />
+            <element signature="e#6322#6350#0" expanded="false" />
+            <element signature="e#8262#8746#0" expanded="false" />
+            <element signature="e#8797#9750#0" expanded="false" />
+            <element signature="e#9783#11950#0" expanded="false" />
+            <element signature="e#12001#12681#0" expanded="false" />
+            <element signature="e#12718#13238#0" expanded="false" />
+            <element signature="e#13288#13750#0" expanded="false" />
+            <element signature="e#13797#14402#0" expanded="false" />
+            <element signature="e#14476#16831#0" expanded="false" />
+            <element signature="e#16875#20014#0" expanded="false" />
+            <element signature="e#20333#21939#0" expanded="false" />
+            <element signature="e#21984#23297#0" expanded="false" />
+            <element signature="e#23340#23524#0" expanded="false" />
+            <element signature="e#23570#23749#0" expanded="false" />
+            <element signature="e#23794#23982#0" expanded="false" />
+            <element signature="e#24035#24265#0" expanded="false" />
+            <element signature="e#24323#25112#0" expanded="false" />
+            <element signature="e#25157#25545#0" expanded="false" />
+            <element signature="e#25594#25902#0" expanded="false" />
+            <element signature="e#26200#26354#0" expanded="false" />
+            <element signature="e#26405#26546#0" expanded="false" />
+            <element signature="e#28633#30777#0" expanded="false" />
+            <element signature="e#30827#31466#0" expanded="false" />
+            <element signature="e#31523#32245#0" expanded="false" />
+            <element signature="e#32305#33510#0" expanded="false" />
+            <element signature="e#33588#33738#0" expanded="false" />
+            <element signature="e#33761#33836#0" expanded="false" />
+            <element signature="e#33891#34230#0" expanded="false" />
+            <element signature="e#34284#34824#0" expanded="false" />
+            <element signature="e#34859#34958#0" expanded="false" />
+            <element signature="n#!!block;n#guid#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="5457">
+          <caret line="280" column="34" selection-start-line="280" selection-start-column="34" selection-end-line="280" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1481#2709#0" expanded="false" />
+            <element signature="e#2793#3943#0" expanded="false" />
+            <element signature="e#4018#4636#0" expanded="false" />
+            <element signature="e#6208#6235#0" expanded="false" />
+            <element signature="e#6267#6291#0" expanded="false" />
+            <element signature="e#6322#6350#0" expanded="false" />
+            <element signature="e#8262#8746#0" expanded="false" />
+            <element signature="e#8797#9750#0" expanded="false" />
+            <element signature="e#9783#11950#0" expanded="false" />
+            <element signature="e#12001#12681#0" expanded="false" />
+            <element signature="e#12718#13238#0" expanded="false" />
+            <element signature="e#13288#13750#0" expanded="false" />
+            <element signature="e#13797#14402#0" expanded="false" />
+            <element signature="e#14476#16831#0" expanded="false" />
+            <element signature="e#16875#20014#0" expanded="false" />
+            <element signature="e#20333#21939#0" expanded="false" />
+            <element signature="e#21984#23297#0" expanded="false" />
+            <element signature="e#23340#23524#0" expanded="false" />
+            <element signature="e#23570#23749#0" expanded="false" />
+            <element signature="e#23794#23982#0" expanded="false" />
+            <element signature="e#24035#24265#0" expanded="false" />
+            <element signature="e#24323#25112#0" expanded="false" />
+            <element signature="e#25157#25545#0" expanded="false" />
+            <element signature="e#25594#25902#0" expanded="false" />
+            <element signature="e#26200#26354#0" expanded="false" />
+            <element signature="e#26405#26546#0" expanded="false" />
+            <element signature="e#28633#30777#0" expanded="false" />
+            <element signature="e#30827#31466#0" expanded="false" />
+            <element signature="e#31523#32245#0" expanded="false" />
+            <element signature="e#32305#33510#0" expanded="false" />
+            <element signature="e#33588#33738#0" expanded="false" />
+            <element signature="e#33761#33836#0" expanded="false" />
+            <element signature="e#33891#34230#0" expanded="false" />
+            <element signature="e#34284#34824#0" expanded="false" />
+            <element signature="e#34859#34958#0" expanded="false" />
+            <element signature="n#!!block;n#guid#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
+          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="5457">
+          <caret line="280" column="34" selection-start-line="280" selection-start-column="34" selection-end-line="280" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1481#2709#0" expanded="false" />
+            <element signature="e#2793#3943#0" expanded="false" />
+            <element signature="e#4018#4636#0" expanded="false" />
+            <element signature="e#6208#6235#0" expanded="false" />
+            <element signature="e#6267#6291#0" expanded="false" />
+            <element signature="e#6322#6350#0" expanded="false" />
+            <element signature="e#8262#8746#0" expanded="false" />
+            <element signature="e#8797#9750#0" expanded="false" />
+            <element signature="e#9783#11950#0" expanded="false" />
+            <element signature="e#12001#12681#0" expanded="false" />
+            <element signature="e#12718#13238#0" expanded="false" />
+            <element signature="e#13288#13750#0" expanded="false" />
+            <element signature="e#13797#14402#0" expanded="false" />
+            <element signature="e#14476#16831#0" expanded="false" />
+            <element signature="e#16875#20014#0" expanded="false" />
+            <element signature="e#20333#21939#0" expanded="false" />
+            <element signature="e#21984#23297#0" expanded="false" />
+            <element signature="e#23340#23524#0" expanded="false" />
+            <element signature="e#23570#23749#0" expanded="false" />
+            <element signature="e#23794#23982#0" expanded="false" />
+            <element signature="e#24035#24265#0" expanded="false" />
+            <element signature="e#24323#25112#0" expanded="false" />
+            <element signature="e#25157#25545#0" expanded="false" />
+            <element signature="e#25594#25902#0" expanded="false" />
+            <element signature="e#26200#26354#0" expanded="false" />
+            <element signature="e#26405#26546#0" expanded="false" />
+            <element signature="e#28633#30777#0" expanded="false" />
+            <element signature="e#30827#31466#0" expanded="false" />
+            <element signature="e#31523#32245#0" expanded="false" />
+            <element signature="e#32305#33510#0" expanded="false" />
+            <element signature="e#33588#33738#0" expanded="false" />
+            <element signature="e#33761#33836#0" expanded="false" />
+            <element signature="e#33891#34230#0" expanded="false" />
+            <element signature="e#34284#34824#0" expanded="false" />
+            <element signature="e#34859#34958#0" expanded="false" />
+            <element signature="n#!!block;n#guid#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
+          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2268" max-vertical-offset="5338">
+          <caret line="278" column="34" selection-start-line="278" selection-start-column="34" selection-end-line="278" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1481#2709#0" expanded="false" />
+            <element signature="e#2793#3943#0" expanded="false" />
+            <element signature="e#4018#4636#0" expanded="false" />
+            <element signature="e#6208#6235#0" expanded="false" />
+            <element signature="e#6267#6291#0" expanded="false" />
+            <element signature="e#6322#6350#0" expanded="false" />
+            <element signature="e#8262#8746#0" expanded="false" />
+            <element signature="e#8797#9750#0" expanded="false" />
+            <element signature="e#9783#11950#0" expanded="false" />
+            <element signature="e#12001#12681#0" expanded="false" />
+            <element signature="e#12718#13238#0" expanded="false" />
+            <element signature="e#13288#13750#0" expanded="false" />
+            <element signature="e#13797#14402#0" expanded="false" />
+            <element signature="e#14476#16831#0" expanded="false" />
+            <element signature="e#16875#20014#0" expanded="false" />
+            <element signature="e#20333#21939#0" expanded="false" />
+            <element signature="e#21984#23297#0" expanded="false" />
+            <element signature="e#23340#23524#0" expanded="false" />
+            <element signature="e#23570#23749#0" expanded="false" />
+            <element signature="e#23794#23982#0" expanded="false" />
+            <element signature="e#24035#24265#0" expanded="false" />
+            <element signature="e#24323#25112#0" expanded="false" />
+            <element signature="e#25157#25545#0" expanded="false" />
+            <element signature="e#25594#25902#0" expanded="false" />
+            <element signature="e#26200#26354#0" expanded="false" />
+            <element signature="e#26405#26546#0" expanded="false" />
+            <element signature="e#28633#30777#0" expanded="false" />
+            <element signature="e#30827#31466#0" expanded="false" />
+            <element signature="e#31523#32245#0" expanded="false" />
+            <element signature="e#32305#33510#0" expanded="false" />
+            <element signature="e#33588#33738#0" expanded="false" />
+            <element signature="e#33761#33836#0" expanded="false" />
+            <element signature="e#33891#34230#0" expanded="false" />
+            <element signature="e#34284#34824#0" expanded="false" />
+            <element signature="e#34859#34958#0" expanded="false" />
+            <element signature="n#!!block;n#guid#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
+          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/css/IoTTools.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07467057" vertical-offset="0" max-vertical-offset="1717">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/css/radial-menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="3162">
+          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/mqtt.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6586387" vertical-offset="0" max-vertical-offset="955">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/poi-reduced.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1428">
+          <caret line="6" column="88" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16106014" vertical-offset="158" max-vertical-offset="1496">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1279#2507#0" expanded="false" />
-            <element signature="e#2591#3741#0" expanded="false" />
-            <element signature="e#3816#4434#0" expanded="false" />
-            <element signature="e#6005#6032#0" expanded="false" />
-            <element signature="e#6064#6088#0" expanded="false" />
-            <element signature="e#6119#6147#0" expanded="false" />
-            <element signature="e#8059#8543#0" expanded="false" />
-            <element signature="e#8594#9547#0" expanded="false" />
-            <element signature="e#9580#11747#0" expanded="false" />
-            <element signature="e#11798#12478#0" expanded="false" />
-            <element signature="e#12515#13035#0" expanded="false" />
-            <element signature="e#13085#13547#0" expanded="false" />
-            <element signature="e#13594#14199#0" expanded="false" />
-            <element signature="e#14273#16628#0" expanded="false" />
-            <element signature="e#16672#17205#0" expanded="false" />
-            <element signature="e#17248#18854#0" expanded="false" />
-            <element signature="e#18899#20212#0" expanded="false" />
-            <element signature="e#20255#20439#0" expanded="false" />
-            <element signature="e#20485#20664#0" expanded="false" />
-            <element signature="e#20709#20897#0" expanded="false" />
-            <element signature="e#20950#21180#0" expanded="false" />
-            <element signature="e#21238#22027#0" expanded="false" />
-            <element signature="e#22072#22460#0" expanded="false" />
-            <element signature="e#22509#22817#0" expanded="false" />
-            <element signature="e#23115#23269#0" expanded="false" />
-            <element signature="e#23320#23461#0" expanded="false" />
-            <element signature="e#25548#27692#0" expanded="false" />
-            <element signature="e#27742#28381#0" expanded="false" />
-            <element signature="e#28438#29160#0" expanded="false" />
-            <element signature="e#29220#30425#0" expanded="false" />
-            <element signature="e#30503#30653#0" expanded="false" />
-            <element signature="e#30676#30751#0" expanded="false" />
-            <element signature="e#30806#31145#0" expanded="false" />
-            <element signature="e#31199#31739#0" expanded="false" />
-            <element signature="e#31774#31873#0" expanded="false" />
-            <element signature="n#!!block;n#guid#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/poi-original.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="42" column="88" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/data/poi.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-31.0" vertical-offset="503" max-vertical-offset="1445">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/IoTTool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5782748" vertical-offset="968" max-vertical-offset="2873">
+          <caret line="124" column="11" selection-start-line="124" selection-start-column="11" selection-end-line="124" selection-end-column="11" />
+          <folding>
+            <element signature="e#1481#2709#0" expanded="false" />
+            <element signature="e#2793#3943#0" expanded="false" />
+            <element signature="e#4018#4636#0" expanded="false" />
+            <element signature="e#5740#6157#0" expanded="false" />
+            <element signature="e#6208#6235#0" expanded="false" />
+            <element signature="e#6267#6291#0" expanded="false" />
+            <element signature="e#6322#6350#0" expanded="false" />
+            <element signature="e#6386#8224#0" expanded="false" />
+            <element signature="e#8262#8746#0" expanded="false" />
+            <element signature="e#8797#9750#0" expanded="false" />
+            <element signature="e#9783#11950#0" expanded="false" />
+            <element signature="e#12001#12681#0" expanded="false" />
+            <element signature="e#12718#13238#0" expanded="false" />
+            <element signature="e#13288#13750#0" expanded="false" />
+            <element signature="e#13797#14402#0" expanded="false" />
+            <element signature="e#14476#16831#0" expanded="false" />
+            <element signature="e#16875#20014#0" expanded="false" />
+            <element signature="e#20068#20290#0" expanded="false" />
+            <element signature="e#20333#21939#0" expanded="false" />
+            <element signature="e#21984#23297#0" expanded="false" />
+            <element signature="e#23340#23524#0" expanded="false" />
+            <element signature="e#23570#23749#0" expanded="false" />
+            <element signature="e#23794#23982#0" expanded="false" />
+            <element signature="e#24035#24265#0" expanded="false" />
+            <element signature="e#24323#25112#0" expanded="false" />
+            <element signature="e#25157#25545#0" expanded="false" />
+            <element signature="e#25594#25902#0" expanded="false" />
+            <element signature="e#25950#26151#0" expanded="false" />
+            <element signature="e#26200#26354#0" expanded="false" />
+            <element signature="e#26405#26546#0" expanded="false" />
+            <element signature="e#26650#34963#0" expanded="false" />
+            <element signature="e#27175#28462#0" expanded="false" />
+            <element signature="e#28633#30777#0" expanded="false" />
+            <element signature="e#30827#31466#0" expanded="false" />
+            <element signature="e#31523#32245#0" expanded="false" />
+            <element signature="e#32305#33510#0" expanded="false" />
+            <element signature="e#33588#33738#0" expanded="false" />
+            <element signature="e#33761#33836#0" expanded="false" />
+            <element signature="e#33891#34230#0" expanded="false" />
+            <element signature="e#34284#34824#0" expanded="false" />
+            <element signature="e#34859#34958#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/app-init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49745157" vertical-offset="345" max-vertical-offset="1326">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4678899" vertical-offset="561" max-vertical-offset="1649">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="90" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

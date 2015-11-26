@@ -36,29 +36,4 @@
     </div>
   </div>
 
-  <!--div id="chart_div" style="width: 400px; height: 220px;">
-      <button onclick="hh(1,0,0)">x+</button><button onclick="hh(-1,0,0)">x-</button>
-      <button onclick="hh(0,1,0)">y+</button><button onclick="hh(0,-1,0)">y-</button>
-      <button onclick="hh(0,0,1)">z+</button><button onclick="hh(0,0,-1)">z-</button>
-      <script>
-          function sensorOrientation (x, y, z) {
-              var sensorid = 'c4be8471058b';
-              sensorid = 'B';
-              var sensors = oViewer.toolController.getTool('IoT').sensorPanels();
-              if (sensors [sensorid] !== undefined) {
-                  var t = sensors[sensorid].scene();
-                  var elt =t.children[0] ;
-                  var factor =10.0 ;
-                  elt.rotation.x +=x/factor ;
-                  elt.rotation.y +=y/factor ;
-                  elt.rotation.z +=z/factor ;
-              }
-          }
-
-          function hh (x, y, z) {
-              sensorOrientation (x, y, z) ;
-          }
-      </script>
-    </div-->
-
 </body>

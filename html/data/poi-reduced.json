@@ -1,0 +1,78 @@
+{
+	"b0b448bf5d87": {
+		"name": "25 Haas-VF-2TR",
+		"icon": "/images/25-Haas-VF-2TR-icon128.png",
+		"iconClass": "medium",
+		"image": "/images/25-Haas-VF-2TR.png",
+		"url": "https://www.haascnc.com/mt_spec1.asp?id=VF-2TR&webID=5AXIS_VMC#gsc.tab=0",
+		"position": { "x": 21.125, "y": 5.499999642372131, "z": -1.2274131774902344 },
+		"target": { "x": 11.333333492279053, "y": 5.499999642372131, "z": -1.2274131774902344 },
+		"id": "ef1f9385-5e09-4fea-98b2-5343a2fc54a9-00054f9e",
+		"sensors": {
+			"id": "",
+			"dbid": 3184,
+			"position": { "x": 16.125, "y": 5.499999642372131, "z": -1.2274131774902344 },
+			"viewfrom": { "x": 21.125, "y": 5.499999642372131, "z": -1.2274131774902344 },
+			"scale": 0.01,
+			"rotation": { "x": 1.5707963267948966, "y": 1.5707963267948966, "z": 0 }
+		}
+	},
+	"b0b448bf1783": {
+		"name": "OMAX 60120 WaterJet REDUX2",
+		"icon": "/images/OMAX60120_WaterJet_REDUX2-icon128.png",
+		"iconClass": "medium",
+		"image": "/images/OMAX60120_WaterJet_REDUX2.png",
+		"url": "https://www.omax.com/omax-machine/60120",
+		"position": { "x": -12.56322193145752, "y": -5.413801193237306, "z": -2.0982460975646973 },
+		"target": { "x": -12.56322193145752, "y": -15.404016494750977, "z": -2.0982460975646973 },
+		"id": "c4468284-33ff-43dc-ad75-b320d51b7cde-00056b05",
+		"sensors": {
+			"id": "",
+			"dbid": 3207,
+			"position": { "x": -12.56322193145752, "y": -10.413801193237305, "z": -2.0982460975646973 },
+			"viewfrom": { "x": -12.56322193145752, "y": -5.413801193237306, "z": -2.0982460975646973 },
+			"scale": 0.01,
+			"rotation": { "x": -1.5707963267948963, "y": 0, "z": -3.141592653589793 }
+		}
+	},
+
+	"68c90b17d38a": {
+		"name": "18 DMS-5O5-5-5-36S",
+		"icon": "/images/18-DMS-5O5-5-5-36S_MODEL-icon128.png",
+		"iconClass": "medium",
+		"image": "/images/18-DMS-5O5-5-5-36S_MODEL.png",
+		"url": "http://www.dmscncrouters.com/5-axis-machines/5-axis-cnc-overhead-gantry/",
+		"position": { "x": -6.66084098815918, "y": 6.7677015364170074, "z": 0.35592031478881836 },
+		"target": { "x": -17.629714012145996, "y": 6.7677015364170074, "z": 0.35592031478881836 },
+		"id": "3c8af6f1-6934-4334-83be-52f084ed178a-0004e717",
+		"sensors": {
+			"id": "",
+			"dbid": 3060,
+			"position": { "x": -11.66084098815918, "y": 6.7677015364170074, "z": 0.35592031478881836 },
+			"viewfrom": { "x": -6.66084098815918, "y": 6.7677015364170074, "z": 0.35592031478881836 },
+			"scale": 0.01,
+			"rotation": { "x": 1.5707963267948966, "y": 1.5707963267948966, "z": 0
+			}
+		}
+	},
+
+	"c4be84711b03": {
+		"name": "10 Haas ST10y CNC Lathe",
+		"icon": "/images/10-HaasST10yCNCLathe-icon128.png",
+		"iconClass": "medium",
+		"image": "/images/10-HaasST10yCNCLathe.png",
+		"url": "https://www.haascnc.com/mt_spec1.asp?id=ST-10Y&webID=YAXIS_LATHE#gsc.tab=0",
+		"position": { "x": -6.852761507034302, "y": 3.916666269302368, "z": -2.7690799236297607 },
+		"target": { "x": 1.6712301969528198, "y": 3.916666269302368, "z": -2.7690799236297607 },
+		"id": "157399d5-718f-4591-b7a9-c5c440cb5e41-00052979",
+		"sensors": {
+			"id": "",
+			"dbid": 3127,
+			"position": { "x": -1.8527615070343018, "y": 3.916666269302368, "z": -2.7690799236297607 },
+			"viewfrom": { "x": -6.852761507034302, "y": 3.916666269302368, "z": -2.7690799236297607 },
+			"scale": 0.01,
+			"rotation": { "x": 1.5707963267948966, "y": -1.5707963267948966, "z": 0 }
+		}
+	}
+
+}
