@@ -188,15 +188,15 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
             .css ('pointer-events', 'none')
             .appendTo (_container) ;
 
-        _clock.start () ;
+		_clock.start () ;
 
-        _wasPerspective =_camera.isPerspective ;
-        _navapi.toPerspective () ;
+		_wasPerspective =_camera.isPerspective ;
+		_navapi.toPerspective () ;
 
-        _previousFov =_camera.fov ;
-        _navapi.setVerticalFov (75, true) ;
+		_previousFov =_camera.fov ;
+		_navapi.setVerticalFov (75, true) ;
 
-		_viewer.fitToView (true) ;
+		//_viewer.fitToView (true) ; // already called from the loading, and actually this is no good calling it from activate()
 		setTimeout (function () { _viewer.autocam.setHomeViewFrom (_camera) ; }, 1000) ;
 
 		// Calculate a movement scale factor based on the model bounds (ignore selection).
