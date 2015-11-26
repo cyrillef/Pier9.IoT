@@ -57,11 +57,20 @@ define (
 							oViewer.loadExtension ('Autodesk.IoT', null) ;
 							oViewer.loadExtension ('Autodesk.FirstPerson', null) ;
 
-							oViewer.addEventListener ('progress', function (evt) {
+							/*oViewer.addEventListener (Autodesk.Viewing.PROGRESS_UPDATE_EVENT, function (evt) {
 								if ( evt.percent >= 100 ) {
-									oViewer.removeEventListener ('progress', arguments.callee) ;
+									oViewer.removeEventListener (Autodesk.Viewing.PROGRESS_UPDATE_EVENT, arguments.callee) ;
 									oViewer.setActiveNavigationTool ('IoT') ;
 								}
+							}) ;*/
+							oViewer.addEventListener (Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function (event) {
+								oViewer.removeEventListener (Autodesk.Viewing.GEOMETRY_LOADED_EVENT, arguments.callee) ;
+								setTimeout (function () {
+										oViewer.setActiveNavigationTool ('IoT') ;
+										oViewer.autocam.setHomeViewFrom (oViewer.navigation.getCamera ()) ;
+									},
+									1000
+								) ;
 							}) ;
 						},
 						function (error) {
