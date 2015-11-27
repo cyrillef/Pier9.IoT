@@ -139,11 +139,10 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
     var _scale =_camera.scale.clone () ; this.scale =function () { return (_scale) ; } ;
 
     var _sensorPanelRenderer =new THREE.CSS3DRenderer () ; // CSS3D Renderer
+	//this.poiNavigationMenu
+	//this.webpage
     var _sensorPanels ={} ; this.sensorPanels =function () { return (_sensorPanels) ; } ;
 	var _mqttClient =null ;
-
-    //this.poiNavigationMenu
-	//this.webpage
 
 	this.update =function (timeStamp) {
         //requestAnimationFrame (this.update) ;
@@ -174,9 +173,16 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		if ( _isActive )
 			return ;
         _isActive =true ;
+		_viewer.loadedExtensions ['Autodesk.IoT'].ioTToolButton.setState (Autodesk.Viewing.UI.Button.State.ACTIVE) ;
 
+		// This is to prevent Shift to disable our tool
+		Autodesk.Viewing.theHotkeyManager.popHotkeys ('Autodesk.Pan') ;
+
+		// Connect to our sensor broker
 		_mqttClient =mqtt.connect (oMQTT.mqtt) ;
-		_mqttClient.subscribe (oMQTT.topic + '/#') ; // subscribe to all sub-topics
+		_mqttClient.on ('connect', function () {
+			_mqttClient.subscribe (oMQTT.topic + '/#') ; // Subscribe to all sub-topics
+		}) ;
 		_mqttClient.on ('message', _self.onMqttMessage) ;
 
 		// CSS3D Renderer
@@ -196,44 +202,55 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		_previousFov =_camera.fov ;
 		_navapi.setVerticalFov (75, true) ;
 
-		//_viewer.fitToView (true) ; // Already called from the loading library, and actually this is no good calling it from activate()
+		// Already called from the loading library, and actually this is no good calling it from activate()
+		//_viewer.fitToView (true) ;
 		//setTimeout (function () { _viewer.autocam.setHomeViewFrom (_camera) ; }, 1000) ;
 
 		// Calculate a movement scale factor based on the model bounds (ignore selection).
 		var boundsSize =_viewer.utilities.getBoundingBox (true).size () ;
 		//_modelScaleFactor =Math.max (Math.min (Math.min (boundsSize.x, boundsSize.y), boundsSize.z) / 100.0, 1.0) ;
 
-		//this.resetPointerTracking () ;
-
 		// HACK: Attempt to place focus in canvas so we get key events.
 		_viewer.canvas.focus () ;
 
-        if ( this.poiNavigationMenu === undefined ) {
-            this.createPOINavigationMenu () ;
-            this.createPOIMarkers () ;
-        }
-		if ( this.webpage === undefined )
-			this.createWebpage () ;
+        this.createPOINavigationMenu () ;
+        this.createSensorMarkers () ;
+		this.createWebpage () ;
+		this.activatePOINavigation () ;
 
-        _viewer.addEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, $.proxy (this.onItemSelected, this)) ;
-        _viewer.addEventListener (Autodesk.Viewing.CAMERA_CHANGE_EVENT, $.proxy (this.onCameraChanged, this)) ;
-		_viewer.addEventListener (Autodesk.Viewing.VIEWER_RESIZE_EVENT, $.proxy (this.onViewportSizeChanged, this)) ;
+		this.onItemSelectedProxy =$.proxy (this.onItemSelected, this) ;
+        _viewer.addEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, this.onItemSelectedProxy) ;
+		this.onCameraChangedProxy =$.proxy (this.onCameraChanged, this)
+        _viewer.addEventListener (Autodesk.Viewing.CAMERA_CHANGE_EVENT, this.onCameraChangedProxy) ;
+		this.onViewportSizeChangedProxy = $.proxy (this.onViewportSizeChanged, this);
+		_viewer.addEventListener (Autodesk.Viewing.VIEWER_RESIZE_EVENT, this.onViewportSizeChangedProxy) ;
     } ;
 
 	this.deactivate =function (name) {
 		if ( !_isActive )
 			return ;
 		_isActive =false ;
+		_viewer.loadedExtensions ['Autodesk.IoT'].ioTToolButton.setState (Autodesk.Viewing.UI.Button.State.INACTIVE) ;
 
-        _viewer.removeEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, this.onItemSelected) ;
-        _viewer.removeEventListener (Autodesk.Viewing.CAMERA_CHANGE_EVENT, this.onCameraChanged) ;
-		_viewer.removeEventListener (Autodesk.Viewing.VIEWER_RESIZE_EVENT, this.onViewportSizeChanged) ;
+		_clock.stop () ;
 
-        _clock.stop () ;
-		//showUIElements (true) ;
+		// We should restore the default behavior, but the API does not give us access to the previous definition
+		//Autodesk.Viewing.theHotkeyManager.pushHotkeys ("Autodesk.Pan", hotkeys, { tryUntilSuccess: true }) ;
+		// instead try to register them all again
+		_viewer.registerUniversalHotkeys () ;
 
-		_mqttClient.unsubscribe (oMQTT.topic + '/#') ;
-		_mqttClient =null ;
+        _viewer.removeEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, this.onItemSelectedProxy) ;
+        _viewer.removeEventListener (Autodesk.Viewing.CAMERA_CHANGE_EVENT, this.onCameraChangedProxy) ;
+		_viewer.removeEventListener (Autodesk.Viewing.VIEWER_RESIZE_EVENT, this.onViewportSizeChangedProxy) ;
+
+		this.hideUIElements () ;
+
+		_mqttClient.unsubscribe (oMQTT.topic + '/#', function () {
+			_mqttClient.end (true, function () {
+				_mqttClient =null ;
+			}) ;
+		}) ;
+
 	} ;
 
 	this.onMqttMessage =function (topic, message) {
@@ -241,6 +258,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		// First determine the sensor's uuid
 		var topics =topic.split ('/') ;
 		var sensorid =topics [1] ; // or in the message itself ( 'id' )
+		//console.log (sensorid) ;
 		var sensors =_self.sensorPanels () ;
 		if ( sensors [sensorid] === undefined )
 			return ;
@@ -288,6 +306,9 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
     } ;
 
 	this.createWebpage =function () {
+		var self =this ;
+		if ( this.webpage !== undefined )
+			return ;
 		var webpage =$(document.createElement ('iframe'))
 			.attr ('id', 'webpage')
 			.attr ('src', '')
@@ -320,6 +341,8 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 
 	this.createPOINavigationMenu =function () {
         var self =this ;
+		if ( this.poiNavigationMenu !== undefined )
+			return ;
         this.poiNavigationMenu =this.createRadialMenu (
             oPOI,
             '/images/menu.png',
@@ -501,8 +524,11 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		return (null) ;
 	} ;
 
-    this.createPOIMarkers =function () {
+    this.createSensorMarkers =function () {
         var self =this ;
+		if ( this.poiNavigationMenu === undefined )
+			return ;
+		$('div.sensor-markers').remove () ;
         for ( var key in oPOI ) {
             var poi =oPOI [key] ;
 			//var id =key.replace (/\W/g, '') ;
@@ -512,11 +538,11 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
                 //.attr ('class', '')
                 .attr ('id', key)
 				.attr ('title', 'Sensor ID: ' + key + ' [' + oPOI [key].name + ']')
+				.attr ('class', 'sensor-markers')
                 .css ('width', '32px').css ('height', '32px')
                 .css ('position', 'absolute').css ('top', (screenPoint.y + 'px')).css ('left', (screenPoint.x + 'px'))
                 .css ('background', 'transparent url(/images/sensortag.png) no-repeat')
                 .css ('pointer-events', 'auto').css ('cursor', 'pointer')
-				//.css ('border', 'border: solid 1px red')
                 .css ('z-index', '4')
                 .appendTo (this.poiNavigationMenu)
                 .click (function (evt) {
@@ -595,7 +621,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 	this.onViewportSizeChanged =function () {
 		if ( this.poiNavigationMenu !== undefined )
 			this.poiNavigationMenu.css ('width', _container.outerWidth ()).css ('height', _container.outerHeight ()) ;
-		this.onCameraChanged () ;
+		this.onCameraChanged (null) ;
 	} ;
 
     this.normalizeCoords =function (screenPoint) {
@@ -652,7 +678,8 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
         this.poiNavigationMenu.css ('display', 'block') ;
 		this.webpage.webpage.css ('display', 'none') ;
         $('div[id*=-panel]').css ('display', 'none') ;
-		this.onCameraChanged (null) ;
+		this.onViewportSizeChanged () ;
+		//this.onCameraChanged (null) ; // It is called from onViewportSizeChanged()
     } ;
 
 	this.activateWebpageNavigation =function () {
@@ -666,6 +693,12 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		this.webpage.webpage.css ('display', 'none') ;
         panel.activate () ;
     } ;
+
+	this.hideUIElements =function () {
+		this.poiNavigationMenu.css ('display', 'none') ;
+		this.webpage.webpage.css ('display', 'none') ;
+		$('div[id*=-panel]').css ('display', 'none') ;
+	} ;
 
 } ;
 
@@ -701,7 +734,7 @@ Autodesk.Viewing.Extensions.IoTTool.SensorPanel =function (sensorid, iotTool) {
 			.bind ('mousewheel', function (evt) {
 				evt.preventDefault () ;
 				_tool.viewer ().toolController.mousewheel (evt.originalEvent) ;
-		}) ;
+			}) ;
         // CSS Object
         var div =new THREE.CSS3DObject (element [0]) ;
         div.position.set (sensor.position.x, sensor.position.y, sensor.position.z) ;
@@ -897,49 +930,6 @@ Autodesk.Viewing.Extensions.IoTTool.SensorPanel =function (sensorid, iotTool) {
     } ;
 
 } ;
-
-
-// Configuration Module
-/*Autodesk.Viewing.Extensions.IoTTool.SensorPanel =function (iotTool) {
-	var _self =this ;
-	var _tool =iotTool ; this.tool =function () { return (_tool) ; } ;
-	var _isMac =(navigator.userAgent.search ("Mac OS") != -1) ;
-
-	var _modifierState ={ SHIFT: 0, ALT: 0, CONTROL: 0 } ; // TODO: Use the hotkeymanager for these.
-	var _keys =Autodesk.Viewing.theHotkeyManager.KEYCODES ;
-
-	// gamepad
-	var _gamepadModule ;
-	// If this browser supports gamepad, instantiate GamepadModule
-	if ( navigator.getGamepads || !!navigator.webkitGetGamepads || !!navigator.webkitGamepads )
-		_gamepadModule =new Autodesk.Viewing.Extensions.GamepadModule (viewerapi) ;
-
-	this.activate =function (name) {
-		addCrosshair () ;
-
-		_gamepadModule.activate (this.getName ()) ;
-	} ;
-
-	this.deactivate =function (name) {
-		removeCrosshair () ;
-
-		if ( _gamepadModule )
-			_gamepadModule.deactivate () ;
-	} ;
-
-	addCrosshair =function () {
-		if ( typeof stringToDOM === "function" ) {
-			this.crosshair =stringToDOM ('<div id="remote-crosshair"><div class="crosshair-v"></div><div class="crosshair-h"></div></div>') ;
-			viewerapi.canvasWrap.appendChild (this.crosshair) ;
-		}
-	} ;
-
-	removeCrosshair =function () {
-		if ( this.crosshair )
-			this.crosshair.remove () ;
-	} ;
-
-} ;*/
 
 
 // Utilities
