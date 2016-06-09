@@ -14,7 +14,7 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////////////////
-var viewerVersion ='' ; // ?v=1.2.29
+var viewerVersion ='' ; // ?v=2.8
 
 requirejs.config ({
 	'baseUrl': '/js',
@@ -57,8 +57,8 @@ requirejs.config ({
 		'radialMenu': 'radial-menu',
 
 		'jquery': '/bower_components/jquery/dist/jquery.min',
-		'threejs': 'https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min',
-		'viewer3d': 'https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D',
+		'threejs': 'https://autodeskviewer.com/viewers/2.8/three.min',
+		'viewer3d': 'https://autodeskviewer.com/viewers/2.8/viewer3D.min',
 		'viewer': '/bower_components/view-and-data-toolkit/dist/js/viewer',
 		'domReady': '/bower_components/domReady/domReady',
 		//'async': '/bower_components/async/dist/async.min',
@@ -80,7 +80,7 @@ requirejs.config ({
 requirejs ([ 'jquery', 'themes', 'radialMenu', 'css3d', 'app-init' ],
 	function ($, themes, radialMenu, App) {
 		themes.loadCss ('https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700') ;
-		themes.loadCss ('https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css' + viewerVersion) ;
+		themes.loadCss ('https://autodeskviewer.com/viewers/2.8/style.css' + viewerVersion) ;
 		themes.loadCss ('/css/app.css') ;
 		themes.loadCss ('/css/IoTTools.css') ;
 		themes.loadCss ('/css/radial-menu.css') ;

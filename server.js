@@ -43,7 +43,7 @@ app.get ('/auth', function (req, res) {
 }) ;
 
 /////////////////////////////////////////////////////////////////////////////////
-app.set ('port', process.env.PORT || 8080) ;
+app.set ('port', process.env.PORT || 80) ;
 var server =app.listen (app.get ('port'), function () {
 	console.log ('Server listening on port ' + server.address ().port) ;
 }) ;
