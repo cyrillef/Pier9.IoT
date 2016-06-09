@@ -37,7 +37,7 @@ define (
 					progressiveRendering: true
 				} ;
 				var viewerFactory =new Autodesk.ADN.Toolkit.Viewer.ViewerFactory (
-					'http://' + window.location.host + '/auth',
+					window.location.protocol + '//' + window.location.host + '/auth',
 					{ 'environment': env }
 				) ;
 				viewerFactory.onInitialized (function () {
