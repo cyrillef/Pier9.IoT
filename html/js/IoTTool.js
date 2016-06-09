@@ -179,6 +179,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 		Autodesk.Viewing.theHotkeyManager.popHotkeys ('Autodesk.Pan') ;
 
 		// Connect to our sensor broker
+		oMQTT.mqtt.protocol =window.location.protocol == 'https:' ? 'wss' : 'ws' ;
 		_mqttClient =mqtt.connect (oMQTT.mqtt) ;
 		_mqttClient.on ('connect', function () {
 			_mqttClient.subscribe (oMQTT.topic + '/#') ; // Subscribe to all sub-topics
