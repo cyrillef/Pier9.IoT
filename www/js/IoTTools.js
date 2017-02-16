@@ -315,6 +315,7 @@ Autodesk.Viewing.Extensions.IoTTool =function (viewer, IoTExtension) {
 			.attr ('src', '')
 			.attr ('width', '400px').attr ('height', '400px')
 			.css ('display', 'none')
+			.css ('background-color', 'white')
 			.css ('pointer-events', 'auto') ; // not none
 		var div =new THREE.CSS3DObject (webpage [0]) ;
 		div.position.set (0, 0, 0) ;
