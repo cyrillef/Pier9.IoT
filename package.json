@@ -2,7 +2,7 @@
 	"name": "pier9.iot",
 	"description": "Internet of Things (IoT) for Pier 9",
 	"homepage": "http://around-the-corner.typepad.com/",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -23,8 +23,8 @@
 		"npm": ">= 3.9.3"
 	},
 	"scripts": {
-		"start": "node server.js",
-		"debug": "node --debug-brk=5858 --nolazy server.js",
+		"start": "node start.js",
+		"debug": "node --debug-brk=5858 --nolazy start.js",
 		"postinstall": "bower install"
 	},
 	"files": [
@@ -39,12 +39,14 @@
 		"iot"
 	],
 	"dependencies": {
-		"express": "4.x",
-		"morgan": "1.x",
-		"request": "*",
-		"socket.io": "0.9.x",
-		"view-and-data": "^1.0.6",
-		"bower": "^1.6.5"
+		"express": "*",
+	  	"body-parser": "*",
+		"forge-apis": "*",
+		"socket.io": "*",
+	  	"rimraf": "*",
+	  	"mkdirp": "*",
+		"bower": "*",
+		"serve-favicon": "*"
 	},
 	"devDependencies": {},
 	"optionalDependencies": {}

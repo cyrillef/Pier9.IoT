@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Autodesk Pier9 IoT example</title>
+    <meta content="Pier9 IoT example" name="description" />
+    <meta content="Pier9 IoT Node.js Forge Viewer" name="keywords" />
+    <meta content="Autodesk" name="author" />
+    <link href="favicon.ico" rel="shortcut icon" />
+
+    <!-- icons-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <link href="/bower_components/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
+    <link href="/css/ionicons.css" rel="stylesheet" />
+    <link href="/css/maria-theme-checkbox.css" rel="stylesheet" />
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="/css/maria-base-theme.css" rel="stylesheet" />
+    <link href="/css/maria-theme.css" rel="stylesheet" />
+    <!--link href="/css/open-sans.css" rel="stylesheet" /-->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link href="/css/custom.css" rel="stylesheet" />
+    <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet" />
+    <script src="//www.fuelcdn.com/fuelux/3.12.0/js/fuelux.min.js"></script>
+
+    <script src="/bower_components/jquery.cookie/jquery.cookie.js"></script>
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" />
+    <script src="//www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Autodesk Forge Viewer -->
+    <link href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css?v=v2.13.1" rel="stylesheet" />
+    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js?v=v2.13.1"></script>
+    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.js?v=v2.13.1"></script>
+
+    <script src="/libs/CSS3DRenderer.js"></script>
+    <script src="/libs/mqtt.min.js"></script>
+    <script src="/libs/smoothie.js"></script>
+    <link href="/css/radial-menu.css" rel="stylesheet" />
+    <script src="/js/radial-menu.js"></script>
+    <link href="/css/IoTTools.css" rel="stylesheet" />
+    <script src="/js/IoTTools.js"></script>
+    <link href="/css/app.css" rel="stylesheet" />
+
+    <!-- Our scripts -->
+    <style>
+        div#viewer { width: auto; height: 700px; cursor: pointer; padding: 0px; margin-bottom: 20px;
+            position: relative; overflow: hidden; border: 2px dashed #aaa; border-radius: 10px; }
+
+        div.docking-panel { top: 0px; left: 0px; width: 305px; height: 250px; resize: none; }
+        div.docking-panel-minimized { height: 34px; min-height: 34px }
+
+        label { color: white; }
+
+        div.modal .panel-heading { border-top-left-radius: inherit; border-top-right-radius: inherit; }
+    </style>
+    <script>
+		google.charts.load ('current', { 'packages': [ 'gauge' ] }) ;
+
+		var models ={
+			'poi-': location.origin + '/Pier9/0.svf', // Full model
+			//'poi-original': location.origin + '/Pier9/0.svf', // Full model, with original definition
+			'poi-reduced': 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cGllcjkuYXV0b2Rlc2suaW8vUDlfTWFjaGluZVNob3BfRmluYWwucnZ0' // Reduced model
+		} ;
+		var urn =switchModel ('poi-reduced') ; // default
+
+		// https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-viewer/
+		function getAccessToken (onGetAccessToken) {
+			//onGetAccessToken ('6LPOquQVo3GoXPxFSdrpSt7h8UTC', 83000) ;
+			$.get ('/token', function (data, status) {
+				//console.log (data) ;
+				onGetAccessToken (data.access_token, data.expires_in) ;
+			}).fail (function (data) {
+				//console.log (data) ;
+			}) ;
+		}
+
+		var oPOI, oMQTT ;
+		function switchModel (config, evt) {
+			urn =models [config] ;
+
+            // Get our POI definition from the server
+            $.get ('/data/' + config + '.json', function (data, status) {
+                oPOI =data ;
+            }).fail (function (data) {
+                console.log (data) ;
+                oPOI ={} ;
+            }) ;
+
+            // Get our MQTT server instructions from the server
+            $.get ('/data/mqtt.json', function (data, status) {
+                oMQTT =data ;
+            }).fail (function (data) {
+                console.log (data) ;
+                oMQTT ={} ;
+            }) ;
+
+            return (urn) ;
+		}
+
+		var oDocument =null, oViewer =null ;
+		var oViewables =null, oViews3D =null, oViews2D =null, oViewsCtrl =null, oViewsPanel =null ;
+		$(document).ready (function () {
+			var options ={ 'getAccessToken': getAccessToken, 'env': 'AutodeskProduction' /*, 'accessToken': '' */ } ;
+			Autodesk.Viewing.Initializer (options, loadModel) ;
+
+			$('#poi-reduced').on ('click', function (evt) {
+				evt.stopPropagation () ;
+				if ( $(evt.target).hasClass ('btn-success') )
+					return ;
+				$(evt.target).removeClass ('btn-info').addClass ('btn-success') ;
+				$('#poi-').removeClass ('btn-success').addClass ('btn-info') ;
+				urn =switchModel ('poi-reduced') ;
+                loadModel () ;
+			}) ;
+			$('#poi-').on ('click', function (evt) {
+				evt.stopPropagation () ;
+				if ( $(evt.target).hasClass ('btn-success') )
+					return ;
+				$(evt.target).removeClass ('btn-info').addClass ('btn-success') ;
+				$('#poi-reduced').removeClass ('btn-success').addClass ('btn-info') ;
+				urn =switchModel ('poi-') ;
+				loadModel () ;
+			}) ;
+
+		}) ;
+
+		function loadModel () {
+			var pattern =/^(urn|https?):.*$/g ;
+			if ( !pattern.test (urn) )
+				urn ='urn:' + urn ;
+			pattern =/^(urn):.*$/g ;
+			if ( pattern.test (urn) )
+				Autodesk.Viewing.Document.load (urn, onDocumentLoaded, onError) ;
+			else
+				startViewer (urn, urn.replace (/[^\/]*$/, '')) ;
+		}
+
+		function onDocumentLoaded (doc) {
+            oDocument =doc ;
+            // Get all the 3D and 2D views (but keep in separate arrays so we can differentiate in the UI)
+            oViews3D =Autodesk.Viewing.Document.getSubItemsWithProperties (doc.getRootItem (), { 'type': 'geometry', 'role': '3d' }, true) ;
+            oViews2D =Autodesk.Viewing.Document.getSubItemsWithProperties (doc.getRootItem (), { 'type': 'geometry', 'role': '2d' }, true) ;
+            // Load up first a 3D view by default
+            var viewable =null ;
+            if ( oViews3D.length > 0 )
+				viewable =oViews3D [0] ;
+            else if ( oViews2D.length > 0 )
+				viewable =oViews2D [0] ;
+            else
+                return (alert ('ERROR: No 3D or 2D views found in this document!')) ;
+
+            startViewer (doc.getViewablePath (viewable), doc.getPropertyDbPath ()) ;
+		}
+
+		function startViewer (svfUrl, sharedPropertyDbPath) {
+			if ( oViewer )
+				return (loadModelInViewer (svfUrl, sharedPropertyDbPath)) ;
+
+			var modelOptions ={ sharedPropertyDbPath: sharedPropertyDbPath } ;
+			oViewer =new Autodesk.Viewing.Private.GuiViewer3D ($("#viewer") [0]) ;
+			//var pattern =/^(urn):.*$/g ;
+			//if ( pattern.test (urn) ) {
+                oViewer.start (svfUrl, modelOptions, onModelLoaded, onError) ;
+			//} else {
+			//    oViewer.initialize () ;
+    		//    oViewer.loadModel (svfUrl, modelOptions, onModelLoaded, onError) ;
+			//}
+            //oViewer.addEventListener (Autodesk.Viewing.TOOLBAR_CREATED_EVENT, onViewerToolbarCreated) ;
+            //oViewer.addEventListener (Autodesk.Viewing.GEOMETRY_LOADED_EVENT, onViewerGeometryLoaded) ;
+        }
+
+		function loadModelInViewer (svfUrl, sharedPropertyDbPath) {
+			oViewer.tearDown () ;
+			oViewer.setUp (oViewer.config) ;
+			var modelOptions ={ sharedPropertyDbPath: sharedPropertyDbPath } ;
+			oViewer.loadModel (svfUrl, modelOptions, onModelLoaded, onError) ;
+		}
+
+		function onModelLoaded (model) {
+			//console.log (model) ;
+			oViewer.loadExtension ('Autodesk.IoT', null) ;
+			oViewer.loadExtension ('Autodesk.FirstPerson', null) ;
+			setTimeout (function () {
+                    oViewer.setActiveNavigationTool ('IoT') ;
+                    oViewer.fitToView () ;
+                 }, 1000
+            ) ;
+		}
+
+        function onError (viewerErrorCode) {
+            var elt =$('#LoadingError div.modal-body') ;
+            elt.text ('Loading Error #' + viewerErrorCode) ;
+            var ul =$(document.createElement ('ul')).appendTo (elt) ;
+            $.each (messages, function (index, item) {
+                $(document.createElement ('li'))
+                    .text (item.message)
+                    .appendTo (ul) ;
+            }) ;
+            $('#LoadingError').modal () ;
+        }
+
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#nav-parent" class="fuelux">
+
+    <!-- NAVBAR -->
+    <div class="bs-docs-section clearfix" id="navbar">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                    <div class="navbar navbar-default app-navbar">
+                        <div class="container app-container">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="https://developer.autodesk.com/"><img width="160px;" src="/images/Autodesk_logo.png" style="padding: 20px;"></a>
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="https://github.com/cyrillef/Pier9.IoT">View on GitHub <i class="fa fa-github-alt fa-fw"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="clearfix">
+        <div class="row fullscreen-scroller">
+            <div class="col-lg-12 animation-container">
+                <div class="output">
+                    <script src="/js/fss.js"></script>
+                    <script src="/js/background-animation.js"></script>
+                </div>
+
+                <div class="page-header content-header app-content-header api-detail-header view-and-data-api" id="title">
+                    <div class="container app-container">
+                        <div class="col-xs-12 col-sm-6 col-md-9 col-lg-9 app-title-container">
+                            <h1 id="view-and-data-title"><a href="http://developer-autodesk.github.io/" target="_blank">Autodesk Developer</a></h1>
+                            <h1 id="view-and-data-title">Autodesk Forge Viewer - Pier9 IoT</h1>
+                        </div>
+                        <!--<p>Embedding vibrant 3D graphics in a Web Browser,
+                            Support for almost 100 formats,
+                            fast streaming large 2D and 3D models </p>-->
+                        <!--div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 app-button-container">
+                            <p class="bs-component">
+                                <a href="https://developer.autodesk.com/" class="btn app-btn app-btn-lg app-btn-primary create-app-btn pull-right">Create an App<span class="bg-icon size-21"><i class="icon ion-chevron-right"></i></span></a>
+                            </p>
+                        </div-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <!-- http://getbootstrap.com/examples/theme/ -->
+    <div class="content-form app-content-form clearfix">
+        <div class="container app-container">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="page-header">
+                        <div class="panel panel-default app-panel-default">
+                            <div class="panel-body app-panel-body app-api-doc">
+                                <div class="app-api-section">
+                                    <button id="poi-" type="button" class="btn btn-info">Full Model</button>
+                                    <button id="poi-reduced" type="button" class="btn btn-success">Reduced Model</button>
+
+                                    <div id="project"><div id="viewer" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER  -->
+    <div class="clearfix">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-footer">
+                    <div class="container app-container">
+                        <p>&#169; Copyright 2017 Autodesk. All rights reserved. </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap's modal dialog-->
+    <div id="LoadingError" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content panel-danger">
+                <div class="modal-header panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Loading Error</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script>
+        (function (i, s, o, g, r, a, m) { i ['GoogleAnalyticsObject']= r ; i [r] =i [r] || function () {
+                (i [r].q= i [r].q || []).push (arguments) }, i [r].l =1 * new Date () ; a =s.createElement (o),
+            m =s.getElementsByTagName (o) [0] ; a.async =1 ; a.src =g ; m.parentNode.insertBefore (a, m)
+        }) (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga') ;
+        ga ('create', 'UA-71558670-1', 'auto');
+        ga ('send', 'pageview') ;
+    </script -->
+
+</body>
+</html>

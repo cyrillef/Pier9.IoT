@@ -1,0 +1,96 @@
+/*
+// Copyright (c) Autodesk, Inc. All rights reserved
+//
+// Permission to use, copy, modify, and distribute this software in
+// object code form for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appears in all copies and
+// that both that copyright notice and the limited warranty and
+// restricted rights notice below appear in all supporting
+// documentation.
+//
+// AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS.
+// AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF
+// MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
+// DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
+// UNINTERRUPTED OR ERROR FREE.
+//
+// by Cyrille Fauvel - Autodesk Developer Network (ADN)
+*/
+.three-div {
+	background-color: transparent;
+	color: #E50000;
+	font-family: Arial, Helvetica, Sans-serif;
+	padding: 0px;
+	pointer-events: none;
+	width: 600px;
+	height: 600px;
+}
+
+.three-div table {
+	background-color: transparent;
+}
+
+.three-div div.panel-elt {
+	float: left;
+	width: 200px; min-width: 200px;
+	height: 200px; min-height: 200px;
+	pointer-events: auto;
+}
+
+.three-div canvas.panel-elt-smoothie {
+	float: left;
+	width: 400px; min-width: 400px;
+	height: 200px; min-height: 200px;
+	pointer-events: auto;
+}
+
+.adsk-icon-IoT {
+	background-image: url(/images/iot.png);
+}
+
+.three-div h3 {
+	background-color: #f5f5f5;
+	opacity: 0.4;
+	padding: 3px;
+}
+
+/* Gauges */
+table.tableGauges {
+	margin: 10px;
+	border: 0px solid black;
+}
+
+table.tableGauges tr {
+	align: center;
+}
+
+table.tableGauges td {
+	padding: 4px;
+}
+
+/* Patch */
+.three-div .patch-host {
+	position: relative;
+}
+
+.three-div .panel-elt-patch {
+	color: black;
+	padding: 12px;
+	background-color: blue;
+	margin: 0 50% 0 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px; min-width: 100px;
+	height: 70px; min-height: 70px;
+}
+
+.three-div .panel-elt-patch span {
+	margin: 0 50% 0 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2em;
+}

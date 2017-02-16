@@ -2,7 +2,7 @@
   "name": "pier9.iot",
   "description": "Internet of Things (IoT) for Pier 9",
   "homepage": "http://around-the-corner.typepad.com/",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": false,
   "repository": {
     "type": "git",
@@ -18,10 +18,6 @@
     "Alex Chien <alex.chien@autodesk.com>"
   ],
   "license": "MIT",
-  "files": [
-    "LICENSE",
-    "README.md"
-  ],
   "keywords": [
     "express",
     "framework",
@@ -31,13 +27,11 @@
   ],
   "moduleType": "node",
   "dependencies": {
-    "async": "1.4.2",
-    "jquery": "2.1.4",
-    "requirejs": "2.1.17",
-    "domReady": "2.0.1",
-    "view-and-data-toolkit": "*",
-    "smoothie": "~1.27.0",
-    "requirejs-plugins": "~1.0.3"
+    "smoothie": "*",
+	"jquery": "*",
+	"jquery.cookie": "*",
+	"jquery-ui": "*",
+	"bootstrap": "*"
   },
   "devDependencies": {},
   "ignore": [
