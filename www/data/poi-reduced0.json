@@ -17,7 +17,7 @@
 			"rotation": { "x": 1.5707963267948966, "y": 1.5707963267948966, "z": 0 }
 		}
 	},
-	"68c90b17d38a": {
+	"b0b448bf1783": {
 		"name": "OMAX 60120 WaterJet REDUX2",
 		"icon": "/images/OMAX60120_WaterJet_REDUX2-icon128.png",
 		"iconClass": "medium",
@@ -36,7 +36,7 @@
 		}
 	},
 
-	"b0b448bf1783": {
+	"68c90b17d38a": {
 		"name": "18 DMS-5O5-5-5-36S",
 		"icon": "/images/18-DMS-5O5-5-5-36S_MODEL-icon128.png",
 		"iconClass": "medium",
