@@ -14,25 +14,31 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 //
+// Forge Extractor
 // by Cyrille Fauvel - Autodesk Developer Network (ADN)
 //
-var express =require ('express') ;
-var bodyParser =require ('body-parser') ;
-var favicon =require ('serve-favicon') ;
-var forgeToken =require ('./forge-token') ;
-var mqtt =require ('./mqtt-monitor') ;
+var Mailjet =require ('mailjet-sendemail') ;
+var config =require ('./config') ;
 
-var app =express () ;
-//app.use (bodyParser.urlencoded ({ extended: true })) ; // Support encoded bodies
-app.use (bodyParser.json ()) ;
-app.use (express.static (__dirname + '/../www')) ;
-app.use (favicon (__dirname + '/../www/favicon.ico')) ;
-//app.set ('view engine', 'ejs') ;
+function sendMail1 (mail) {
+	mail.to =mail.to || config.mailTo ;
+	if (   config.MJ_APIKEY_PUBLIC === '<replace with your mailjet consumer key>'
+		|| mail.to === ''
+		|| (typeof mail.to === 'object' && mail.to.length === 0)
+	)
+		return ;
+	if ( typeof mail.to === 'string' )
+		mail.to =[ mail.to ] ;
+	var mjet =new Mailjet (config.MJ_APIKEY_PUBLIC, config.MJ_APIKEY_PRIVATE) ;
+	for ( var i =0 ; i < mail.to.length ; i++ ) {
+		mjet.sendContent (
+			mail.from,
+			mail.to [i],
+			mail.subject,
+			'html',
+			mail.html
+		) ;
+	}
+}
 
-app.get ('/token', function (req, res) {
-	res.json (forgeToken.RO.getCredentials ()) ;
-}) ;
-
-app.set ('port', process.env.PORT || 80) ;
-
-module.exports =app ;
+module.exports =sendMail1 ;

@@ -1,53 +1,52 @@
 {
-	"name": "pier9.iot",
-	"description": "Internet of Things (IoT) for Pier 9",
-	"homepage": "http://around-the-corner.typepad.com/",
-	"version": "2.0.0",
-	"private": false,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/cyrillef/Pier9.IoT.git"
-	},
-	"bugs": {
-		"url": "https://github.com/cyrillef/Pier9.IoT/issues"
-	},
-	"author": "Various - Autodesk",
-	"contributors": [
-		"Cyrille Fauvel <cyrillef@free.fr>",
-		"Hans Kellner <hans.kellner@autodesk.com>",
-		"Alex Chien <alex.chien@autodesk.com>"
-	],
-	"license": "MIT",
-	"engines": {
-		"node": ">= 6.3.1",
-		"npm": ">= 3.10.3"
-	},
-	"scripts": {
-		"start": "node start.js",
-		"debug": "node --debug-brk=5858 --nolazy start.js",
-		"postinstall": "bower install"
-	},
-	"files": [
-		"LICENSE",
-		"README.md"
-	],
-	"keywords": [
-		"express",
-		"framework",
-		"raspberry",
-		"node",
-		"iot"
-	],
-	"dependencies": {
-		"express": "*",
-	  	"body-parser": "*",
-		"forge-apis": "*",
-		"socket.io": "*",
-	  	"rimraf": "*",
-	  	"mkdirp": "*",
-		"bower": "*",
-		"serve-favicon": "*"
-	},
-	"devDependencies": {},
-	"optionalDependencies": {}
+  "name": "pier9.iot",
+  "description": "Internet of Things (IoT) for Pier 9",
+  "homepage": "http://around-the-corner.typepad.com/",
+  "version": "2.0.0",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyrillef/Pier9.IoT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cyrillef/Pier9.IoT/issues"
+  },
+  "author": "Various - Autodesk",
+  "contributors": [
+    "Cyrille Fauvel <cyrillef@free.fr>",
+    "Hans Kellner <hans.kellner@autodesk.com>",
+    "Alex Chien <alex.chien@autodesk.com>"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 6.3.1",
+    "npm": ">= 3.10.3"
+  },
+  "scripts": {
+    "start": "node start.js",
+    "debug": "node --debug-brk=5858 --nolazy start.js",
+    "postinstall": "bower install"
+  },
+  "keywords": [
+    "express",
+    "framework",
+    "raspberry",
+    "node",
+    "iot"
+  ],
+  "dependencies": {
+    "body-parser": "*",
+    "bower": "*",
+    "express": "*",
+    "forge-apis": "*",
+    "mailjet-sendemail": "*",
+    "mkdirp": "*",
+    "moment": "*",
+    "mqtt": "*",
+    "rimraf": "*",
+    "serve-favicon": "*",
+    "socket.io": "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
 }
