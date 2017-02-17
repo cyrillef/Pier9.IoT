@@ -23,7 +23,8 @@ var sendMail =require ('./sendMail') ;
 var config =require ('./config') ;
 
 var astro =require (__dirname + '/../www/data/mqtt.json') ;
-var url =(process.env.NODE_ENV === 'production' ? 'wss' : 'ws') + '://' + astro.mqtt.host + ':' + astro.mqtt.port ;
+//var url =(process.env.NODE_ENV === 'production' ? 'wss' : 'ws') + '://' + astro.mqtt.host + ':' + astro.mqtt.port ;
+var url ='ws://' + astro.mqtt.host + ':' + astro.mqtt.port ;
 
 var client =mqtt.connect (url) ;
 //var astroBeginTime =moment ().subtract (7, 'days') ;
